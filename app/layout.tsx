@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: "Çayan Kuzu — Ürün Tasarımı · UI/UX · Oyun Tasarımı · Fizik",
+  title: "Çayan Kuzu — Ürün Tasarımı · UI/UX · Oyun Tasarımı",
   description:
     "Çayan Kuzu'nun ürün tasarımı, UI/UX, oyun tasarımı ve etkileşimli dijital deneyimler odaklı profesyonel CV ve portfolyosu.",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Dijital Deneyim",
   ],
   openGraph: {
-    title: "Çayan Kuzu — Ürün Tasarımı · UI/UX · Oyun Tasarımı · Fizik",
+    title: "Çayan Kuzu — Ürün Tasarımı · UI/UX · Oyun Tasarımı",
     description:
       "Ürün tasarımı, UI/UX, oyun tasarımı ve etkileşimli projeler odaklı profesyonel CV ve portfolyo.",
     type: "website",

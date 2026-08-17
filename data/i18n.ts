@@ -26,7 +26,7 @@ export type NavigationId = (typeof navigationIds)[number];
 export const siteCopy = {
   tr: {
     metadata: {
-      title: "Çayan Kuzu — Ürün Tasarımı · UI/UX · Oyun Tasarımı · Fizik",
+      title: "Çayan Kuzu — Ürün Tasarımı · UI/UX · Oyun Tasarımı",
       description:
         "Çayan Kuzu'nun ürün tasarımı, UI/UX, oyun tasarımı ve etkileşimli dijital deneyimler odaklı profesyonel CV ve portfolyosu.",
     },
@@ -78,7 +78,7 @@ export const siteCopy = {
     profile: {
       eyebrow: "Kişisel CV ve portfolyo",
       title: "Çayan Kuzu",
-      roleLine: "Ürün Tasarımı · UI/UX · Oyun Tasarımı · Fizik",
+      roleLine: "Ürün Tasarımı · UI/UX · Oyun Tasarımı",
       intro:
         "Dijital ürünler, etkileşimli deneyimler ve oyun fikirleri üzerine çalışan bağımsız bir tasarım adayıyım.",
       educationLabel: "Eğitim",
@@ -221,7 +221,7 @@ export const siteCopy = {
   },
   en: {
     metadata: {
-      title: "Çayan Kuzu — Product Design · UI/UX · Game Design · Physics",
+      title: "Çayan Kuzu — Product Design · UI/UX · Game Design",
       description:
         "Çayan Kuzu's professional CV and portfolio focused on product design, UI/UX, digital experiences and game design.",
     },
@@ -273,7 +273,7 @@ export const siteCopy = {
     profile: {
       eyebrow: "Personal CV & portfolio",
       title: "Çayan Kuzu",
-      roleLine: "Product Design · UI/UX · Game Design · Physics",
+      roleLine: "Product Design · UI/UX · Game Design",
       intro:
         "An independent design candidate working on digital products, interactive experiences and game ideas.",
       educationLabel: "Education",

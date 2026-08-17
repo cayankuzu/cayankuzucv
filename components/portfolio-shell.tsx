@@ -1,16 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { AtSign, Download, ExternalLink, Globe2, Mail, MapPin, Minus, Phone, Plus, X } from "lucide-react";
-import { AmbientField } from "@/components/ambient-field";
+import { AtSign, Download, ExternalLink, GitBranch, Globe2, Mail, MapPin, Minus, Phone, Plus, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { LocaleSync } from "@/components/locale-sync";
-import { SectionField } from "@/components/section-field";
 import { cvContent, cvSections, type CvSection } from "@/data/cv-content";
 import { siteCopy, type Locale } from "@/data/i18n";
-import { FIKKIS_URL, projectCategories } from "@/data/projects";
+import { FIKKIS_URL } from "@/data/projects";
 import { profile } from "@/data/profile";
 
 type PortfolioShellProps = {
@@ -19,8 +18,8 @@ type PortfolioShellProps = {
 };
 
 function getInitialSection(section: string | undefined): CvSection {
-  if (section === "current") {
-    return "focus";
+  if (section === "current" || section === "focus") {
+    return "experience";
   }
 
   return cvSections.includes(section as CvSection) ? (section as CvSection) : "profile";
@@ -28,6 +27,7 @@ function getInitialSection(section: string | undefined): CvSection {
 
 function InfoColumn({ locale }: { locale: Locale }) {
   const [portraitOpen, setPortraitOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const portraitTriggerRef = useRef<HTMLButtonElement>(null);
   const portraitCloseRef = useRef<HTMLButtonElement>(null);
   const copy = siteCopy[locale];
@@ -82,64 +82,68 @@ function InfoColumn({ locale }: { locale: Locale }) {
           <Image src="/profile-cayan-kuzu.jpeg" alt={content.portraitAlt} fill preload sizes="112px" />
         </button>
 
-        <section>
-          <h2>{content.communication}</h2>
-          <a className="contactLink" href={`tel:${profile.phoneHref}`}>
-            <Phone aria-hidden="true" size={14} strokeWidth={1.8} />
-            {profile.phone}
-          </a>
-          <a className="contactLink" href={mailHref}>
-            <Mail aria-hidden="true" size={14} strokeWidth={1.8} />
-            {profile.email}
-          </a>
-        </section>
+        <button
+          className="sidebarDetailsToggle"
+          type="button"
+          aria-expanded={detailsOpen}
+          aria-controls="sidebar-details"
+          onClick={() => setDetailsOpen((current) => !current)}
+        >
+          {detailsOpen ? content.hideDetails : content.showDetails}
+          {detailsOpen ? <Minus aria-hidden="true" size={15} /> : <Plus aria-hidden="true" size={15} />}
+        </button>
 
-        <section>
-          <h2>{content.portfolio}</h2>
-          <a className="portfolioLink" href={profile.portfolioUrl} target="_blank" rel="noreferrer">
-            <Globe2 aria-hidden="true" size={14} strokeWidth={1.8} />
-            {content.portfolioLabel}
-            <ExternalLink aria-hidden="true" size={13} strokeWidth={1.8} />
-          </a>
-          <a className="portfolioLink" href={profile.instagramUrl} target="_blank" rel="noreferrer">
-            <AtSign aria-hidden="true" size={14} strokeWidth={1.8} />
-            {content.instagramLabel}
-            <ExternalLink aria-hidden="true" size={13} strokeWidth={1.8} />
-          </a>
-        </section>
+        <div id="sidebar-details" className={`sidebarDetails${detailsOpen ? " isOpen" : ""}`}>
+          <section>
+            <h2>{content.communication}</h2>
+            <a className="contactLink" href={`tel:${profile.phoneHref}`}>
+              <Phone aria-hidden="true" size={14} strokeWidth={1.8} />
+              {profile.phone}
+            </a>
+            <a className="contactLink" href={mailHref}>
+              <Mail aria-hidden="true" size={14} strokeWidth={1.8} />
+              {profile.email}
+            </a>
+            <a className="portfolioLink" href={profile.githubUrl} target="_blank" rel="noreferrer">
+              <GitBranch aria-hidden="true" size={14} strokeWidth={1.8} />
+              {content.githubLabel}
+              <ExternalLink aria-hidden="true" size={13} strokeWidth={1.8} />
+            </a>
+            <a className="portfolioLink" href={profile.portfolioUrl} target="_blank" rel="noreferrer">
+              <Globe2 aria-hidden="true" size={14} strokeWidth={1.8} />
+              {content.portfolioLabel}
+              <ExternalLink aria-hidden="true" size={13} strokeWidth={1.8} />
+            </a>
+            <a className="portfolioLink" href={profile.instagramUrl} target="_blank" rel="noreferrer">
+              <AtSign aria-hidden="true" size={14} strokeWidth={1.8} />
+              {content.instagramLabel}
+              <ExternalLink aria-hidden="true" size={13} strokeWidth={1.8} />
+            </a>
+          </section>
 
-        <section>
-          <h2>{content.education}</h2>
-          {content.educationLines.map((line) => (
-            <p key={line}>{line}</p>
-          ))}
-        </section>
-
-        <section>
-          <h2>{content.skills}</h2>
-          <div className="skillsOverview">
-            <strong>{content.overview}</strong>
-            <p>{content.overviewText}</p>
-          </div>
-          <ul className="skillList">
-            {content.skillGroups.map((group) => (
-              <li key={group.title}>
-                <strong>{group.title}</strong>
-                <span>{group.items.join(" · ")}</span>
-              </li>
+          <section>
+            <h2>{content.education}</h2>
+            {content.educationLines.map((line) => (
+              <p key={line}>{line}</p>
             ))}
-          </ul>
-        </section>
+          </section>
 
-        <p className="location">
-          <MapPin aria-hidden="true" size={14} strokeWidth={1.7} />
-          {copy.sidebar.location}
-        </p>
+          <section>
+            <h2>{content.skills}</h2>
+            <ul className="skillList">
+              {content.skillGroups.map((group) => (
+                <li key={group.title}>
+                  <strong>{group.title}</strong>
+                  <span>{group.items.join(" · ")}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-        <div className="sidebarAmbientStack" aria-hidden="true">
-          <AmbientField variant="constellation" />
-          <AmbientField variant="orbit" />
-          <AmbientField variant="flow" />
+          <p className="location">
+            <MapPin aria-hidden="true" size={14} strokeWidth={1.7} />
+            {copy.sidebar.location}
+          </p>
         </div>
       </aside>
 
@@ -172,7 +176,7 @@ function ProfileContent({ locale }: { locale: Locale }) {
   const content = cvContent[locale].profile;
 
   return (
-    <div className="sectionContent sectionContent--withVisual profileContent">
+    <div className="sectionContent profileContent">
       <div className="sectionCopy">
         <p className="leadText">{content.summary}</p>
         <div className="profileHighlights">
@@ -185,7 +189,6 @@ function ProfileContent({ locale }: { locale: Locale }) {
         </div>
         <p className="profileNote">{content.note}</p>
       </div>
-      <SectionField kind="profile" />
     </div>
   );
 }
@@ -195,16 +198,33 @@ function ProjectsContent({ locale }: { locale: Locale }) {
   const content = cvContent[locale].projects;
 
   return (
-    <div className="sectionContent sectionContent--withVisual projectsContent">
+    <div className="sectionContent projectsContent">
       <div className="sectionCopy">
         <p className="leadText">{content.intro}</p>
         <div className="projectSummaryList">
-          {projectCategories.map((category, index) => (
-            <article key={category}>
+          {content.items.map((project, index) => (
+            <article key={project.slug}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <div>
-                <h3>{copy.common[category]}</h3>
-                <p>{content.categories[category]}</p>
+                <header>
+                  <h3>{project.title}</h3>
+                  <small>{project.status}</small>
+                </header>
+                <p>{project.description}</p>
+                <dl>
+                  <div>
+                    <dt>{content.platformLabel}</dt>
+                    <dd>{project.platform}</dd>
+                  </div>
+                  <div>
+                    <dt>{content.roleLabel}</dt>
+                    <dd>{project.role}</dd>
+                  </div>
+                </dl>
+                <Link href={`/${locale}/projects/${project.slug}`}>
+                  {content.viewLabel}
+                  <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </article>
           ))}
@@ -215,28 +235,30 @@ function ProjectsContent({ locale }: { locale: Locale }) {
           <ExternalLink aria-hidden="true" size={16} strokeWidth={1.8} />
         </a>
       </div>
-      <SectionField kind="projects" />
     </div>
   );
 }
 
-function FocusContent({ locale }: { locale: Locale }) {
-  const content = cvContent[locale].focus;
+function ExperienceContent({ locale }: { locale: Locale }) {
+  const content = cvContent[locale].experience;
 
   return (
-    <div className="sectionContent sectionContent--withVisual currentContent">
+    <div className="sectionContent experienceContent">
       <div className="sectionCopy">
         <p className="leadText">{content.intro}</p>
-        <div className="currentFocusGrid">
+        <div className="experienceList">
           {content.items.map((item) => (
             <article key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <span>{item.label}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <small>{item.evidence}</small>
+              </div>
             </article>
           ))}
         </div>
       </div>
-      <SectionField kind="focus" />
     </div>
   );
 }
@@ -245,18 +267,21 @@ function GoalsContent({ locale }: { locale: Locale }) {
   const content = cvContent[locale].goals;
 
   return (
-    <div className="sectionContent sectionContent--withVisual goalsContent">
+    <div className="sectionContent goalsContent">
       <div className="sectionCopy">
         <p className="leadText">{content.intro}</p>
         <div className="goalsPanel">
-          <ul>
-            {content.items.map((goal) => (
-              <li key={goal}>{goal}</li>
-            ))}
-          </ul>
+          {content.items.map((goal, index) => (
+            <article key={goal.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{goal.title}</h3>
+                <p>{goal.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
-      <SectionField kind="goals" />
     </div>
   );
 }
@@ -267,8 +292,8 @@ function SectionContent({ locale, section }: { locale: Locale; section: CvSectio
       return <ProfileContent locale={locale} />;
     case "projects":
       return <ProjectsContent locale={locale} />;
-    case "focus":
-      return <FocusContent locale={locale} />;
+    case "experience":
+      return <ExperienceContent locale={locale} />;
     case "goals":
       return <GoalsContent locale={locale} />;
   }
@@ -368,7 +393,10 @@ export function PortfolioShell({ locale, initialSection }: PortfolioShellProps) 
 
           <footer className="siteFooter">
             <span>© 2026 {profile.name}</span>
-            <span>{locale === "tr" ? "MeMoDe tarafından" : "Powered by MeMoDe"}</span>
+            <div className="siteFooterMeta">
+              <span>VERSION {profile.version}</span>
+              <span>{locale === "tr" ? "MeMoDe tarafından" : "Powered by MeMoDe"}</span>
+            </div>
           </footer>
         </article>
       </section>

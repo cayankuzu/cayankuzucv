@@ -1,5 +1,6 @@
 export const profile = {
   name: "Çayan Kuzu",
+  version: "0.3.0",
   positioning: "Ürün Tasarımı / UI/UX / Oyun Tasarımı",
   roles: ["Ürün Tasarımı", "UI/UX", "Oyun Tasarımı"],
   shortBio: "Dijital ürünler, etkileşimli deneyimler ve oyun fikirleri üzerine çalışıyorum.",
@@ -15,53 +16,6 @@ export const profile = {
   instagramUrl: "https://www.instagram.com/memode333/",
   cvUrl: "/cayan-kuzu-cv.pdf",
   // TODO: Add verified public profile links when available.
-  githubUrl: undefined,
+  githubUrl: "https://github.com/cayankuzu",
   linkedInUrl: undefined,
 } as const;
-
-export const skillGroups = [
-  {
-    title: "Product & UX",
-    skills: [
-      "User Experience",
-      "User Flows",
-      "Interaction Design",
-      "Product Thinking",
-      "Prototyping",
-      "Design Systems",
-    ],
-  },
-  {
-    title: "UI Design",
-    skills: [
-      "Figma",
-      "Auto Layout",
-      "Components",
-      "Variables",
-      "Responsive Design",
-      "Prototyping",
-    ],
-  },
-  {
-    title: "Game Design",
-    skills: [
-      "Game Mechanics",
-      "Player Experience",
-      "Game UI/UX",
-      "Python / Pygame",
-      "Browser JavaScript",
-      "Three.js / WebGL",
-      "React Three Fiber",
-    ],
-  },
-  {
-    title: "Tools",
-    skills: [
-      "Figma",
-      "AI-assisted workflows",
-      "Cursor",
-      "GitHub",
-      "Vercel",
-    ],
-  },
-] as const;
