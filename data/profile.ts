@@ -1,6 +1,6 @@
 export const profile = {
   name: "Çayan Kuzu",
-  version: "0.3.0",
+  version: "0.4.0",
   positioning: "Ürün Tasarımı / UI/UX / Oyun Tasarımı",
   roles: ["Ürün Tasarımı", "UI/UX", "Oyun Tasarımı"],
   shortBio: "Dijital ürünler, etkileşimli deneyimler ve oyun fikirleri üzerine çalışıyorum.",
