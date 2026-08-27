@@ -22,6 +22,7 @@ type ProjectPreview = {
   platform: string;
   status: string;
   role: string;
+  tools: string;
 };
 
 type GoalItem = {
@@ -35,6 +36,7 @@ type SkillGroup = {
 };
 
 type CvContent = {
+  footerCredit: string;
   sections: Record<CvSection, string>;
   sidebar: {
     portraitAlt: string;
@@ -55,16 +57,17 @@ type CvContent = {
   };
   profile: {
     summary: string;
-    note: string;
     highlights: ProfileHighlight[];
   };
   projects: {
     intro: string;
     platformLabel: string;
     roleLabel: string;
+    toolsLabel: string;
     viewLabel: string;
+    allProjectsLabel: string;
+    archivePrintLabel: string;
     items: ProjectPreview[];
-    archiveNote: string;
   };
   experience: {
     intro: string;
@@ -78,6 +81,7 @@ type CvContent = {
 
 export const cvContent: Record<Locale, CvContent> = {
   tr: {
+    footerCredit: "MeMoDe tarafından",
     sections: {
       profile: "Profil",
       projects: "Projeler",
@@ -89,7 +93,7 @@ export const cvContent: Record<Locale, CvContent> = {
       communication: "İletişim",
       education: "Eğitim",
       skills: "Yetenekler",
-      educationLines: ["Marmara Üniversitesi", "Fizik Bölümü", "3. sınıf"],
+      educationLines: ["Marmara Üniversitesi — Fizik Bölümü, 4. sınıf"],
       skillGroups: [
         {
           title: "Genel",
@@ -97,18 +101,18 @@ export const cvContent: Record<Locale, CvContent> = {
         },
         {
           title: "Ürün & UX",
-          items: ["Figma", "Wireframe", "User flow", "Bilgi mimarisi", "Etkileşim tasarımı", "Prototipleme"],
+          items: ["Figma", "Wireframing", "Kullanıcı akışı", "Bilgi mimarisi", "Etkileşim tasarımı", "Prototipleme"],
         },
         {
           title: "Oyun & Etkileşim",
-          items: ["Oyun mekaniği", "Oyun döngüsü", "Oyun UI/UX", "Oyun prototipleme"],
+          items: ["Oyun mekanikleri", "Oyun döngüleri", "Oyun UI/UX", "Etkileşimli prototipleme"],
         },
         {
           title: "Uygulama & Web",
           items: ["React Native", "Expo", "Supabase", "Web teknolojileri"],
         },
         {
-          title: "AI & Teslim",
+          title: "AI & Araçlar",
           items: ["AI destekli araştırma", "AI destekli prototipleme", "Cursor", "GitHub", "Vercel"],
         },
       ],
@@ -119,13 +123,12 @@ export const cvContent: Record<Locale, CvContent> = {
       emailBody: "Merhaba Çayan,\n\nPortföyünüz hakkında iletişime geçmek istiyorum.\n\n",
       openPortrait: "Profil fotoğrafını büyüt",
       closePortrait: "Profil fotoğrafını kapat",
-      showDetails: "CV bilgilerini göster",
-      hideDetails: "CV bilgilerini gizle",
+      showDetails: "Detayları Göster",
+      hideDetails: "Detayları Gizle",
     },
     profile: {
       summary:
-        "Marmara Üniversitesi Fizik Bölümü 3. sınıf öğrencisiyim. Dijital ürünler, kullanıcı deneyimi ve oyun tasarımı üzerine çalışıyor; fikirleri araştırma, tasarım ve hızlı prototipleme yoluyla somut deneyimlere dönüştürmeye odaklanıyorum.",
-      note: "Fizik eğitiminden gelen analitik ve sistematik yaklaşımı, ürün ve deneyim tasarımı pratiğimde kullanıyorum.",
+        "Marmara Üniversitesi Fizik Bölümü 4. sınıf öğrencisiyim. Dijital ürünler, kullanıcı deneyimi ve oyun tasarımı üzerine çalışıyorum; fikirleri araştırma, tasarım ve hızlı prototipleme yoluyla somut deneyimlere dönüştürmeye odaklanıyorum.",
       highlights: [
         {
           title: "Ürün Düşüncesi",
@@ -133,90 +136,98 @@ export const cvContent: Record<Locale, CvContent> = {
         },
         {
           title: "UI/UX & Prototipleme",
-          description: "Figma ile kullanıcı akışları, arayüzler ve test edilebilir prototipler geliştiriyorum.",
+          description: "Varsayımları erken prototiplerle sınayıp geri bildirimle sadeleştiriyorum.",
         },
         {
           title: "Oyun & Etkileşim",
-          description: "Mekanik, oyun döngüsü ve oyuncu geri bildirimi üzerinden etkileşim tasarlıyorum.",
+          description: "Oyun mekanikleri, oyun döngüsü ve oyuncu deneyimi üzerinden etkileşim tasarlıyorum.",
         },
       ],
     },
     projects: {
-      intro: "Ürün düşüncesi, kullanıcı akışları, arayüz tasarımı ve çalışan prototipler üzerinden geliştirdiğim seçili projeler.",
+      intro: "Ürün düşüncesi, kullanıcı akışları, arayüz tasarımı ve çalışan prototipler üzerinden geliştirdiğim bazı projeler.",
       platformLabel: "Platform",
       roleLabel: "Rol",
+      toolsLabel: "Araçlar",
       viewLabel: "Projeyi incele",
+      allProjectsLabel: "Tüm projeleri görüntüle",
+      archivePrintLabel: "Fikkis Proje Arşivi",
       items: [
         {
           slug: "etkinlink",
           title: "EtkinLink",
           description: "Etkinlik keşfi, katılımcı odaları ve ilgi temelli eşleşmeyi bir araya getiren mobil ürün prototipi.",
-          platform: "Mobil · Figma",
+          platform: "Mobil",
           status: "Prototip",
           role: "Ürün fikri · Kullanıcı akışları · UI/UX · Prototipleme",
+          tools: "Figma",
         },
         {
           slug: "universe",
           title: "UniVerse",
           description: "Kampüs akışı, topluluklar ve etkinlikleri tek deneyimde buluşturan üniversite odaklı mobil ürün.",
-          platform: "Mobil · Figma Make",
-          status: "iOS'ta mevcut",
+          platform: "iOS",
+          status: "Yayında",
           role: "Ürün tasarımı · UI/UX · Prototipleme",
+          tools: "Figma Make",
         },
         {
           slug: "sorita",
           title: "SoRita",
           description: "Mekânları, anıları ve insanları rota, liste ve paylaşım akışlarıyla buluşturan sosyal şehir deneyimi.",
-          platform: "Mobil · Figma Make",
-          status: "iOS + Android'de yayında",
+          platform: "iOS / Android",
+          status: "Yayında",
           role: "Ürün tasarımı · Kullanıcı akışları · UI/UX",
+          tools: "Figma Make",
         },
         {
-          slug: "wmatch",
-          title: "WMatch",
-          description: "İzleme alışkanlıklarından zevk profili çıkararak ortak yapımlar etrafında eşleşme öneren ürün fikri.",
-          platform: "Mobil · Figma Make",
-          status: "MVP · Test sürecinde",
-          role: "Ürün fikri · Akış tasarımı · UI/UX · Prototipleme",
+          slug: "remember-you-must-die",
+          title: "Remember You Must Die",
+          description: "Müzik, ışık ve mekânı fanilik teması etrafında birleştiren atmosferik, etkileşimli web deneyimi.",
+          platform: "Web",
+          status: "Canlı",
+          role: "Deneyim tasarımı · Etkileşim · Görsel anlatı",
+          tools: "Three.js · WebGL",
         },
         {
           slug: "fikkis",
           title: "Fikkis",
-          description: "Mobil ürünleri, web deneyimlerini, oyunları ve yaratıcı denemeleri bir araya getiren proje arşivi.",
+          description: "Mobil ürünleri, web deneyimlerini, oyunları ve yaratıcı projeleri bir araya getiren kişisel proje arşivi.",
           platform: "Web",
-          status: "Yayında",
+          status: "Canlı",
           role: "Bilgi mimarisi · Proje sunumu · Web deneyimi",
+          tools: "Next.js · Vercel",
         },
         {
           slug: "bibish",
           title: "Bibish",
           description: "Alan kontrolü, takım kaleleri ve NPC orduları üzerine kurulu birinci şahıs web oyunu.",
-          platform: "Web oyunu",
-          status: "Yayında",
+          platform: "Tarayıcı · Masaüstü",
+          status: "Canlı",
           role: "Oyun tasarımı · Mekanikler · Etkileşim · Prototipleme",
+          tools: "Three.js · WebGL2",
         },
       ],
-      archiveNote: "Tüm güncel proje bağlantıları ve arşiv Fikkis üzerinde yer alıyor.",
     },
     experience: {
-      intro: "Bağımsız projelerde üstlendiğim roller ve fikirleri çalışan deneyimlere dönüştürürken geliştirdiğim üretim pratiği.",
+      intro: "Mobil ürün, oyun, web ve bağımsız yayın projelerinde geliştirdiğim üretim pratiği.",
       items: [
         {
           label: "Mobil Ürün",
           title: "Ürün tasarımı ve çalışan prototipler",
-          description: "EtkinLink, UniVerse, SoRita ve WMatch için problem çerçevesi, kullanıcı akışları, arayüzler ve etkileşimli prototipler geliştirdim.",
+          description: "Mobil ürün fikirlerini problem tanımı, kullanıcı akışları, arayüz tasarımı ve etkileşimli prototip adımlarıyla geliştirdim.",
           evidence: "EtkinLink · UniVerse · SoRita · WMatch",
         },
         {
           label: "Oyun & Etkileşim",
           title: "Mekanikten oynanabilir deneyime",
-          description: "Pygame ve tarayıcı teknolojileriyle oyun döngüsü, seviye yapısı, oyuncu geri bildirimi ve etkileşim sistemleri üzerinde çalıştım.",
+          description: "Oyun projelerinde döngü, seviye yapısı, oyuncu geri bildirimi ve etkileşim sistemleri üzerinde çalıştım.",
           evidence: "Bibish · Merbut · Battleship · Son 40 Saniye",
         },
         {
           label: "Web Deneyimi",
           title: "Etkileşimli anlatılar ve yaratıcı araçlar",
-          description: "Müzik, anlatı, üç boyutlu mekân ve yaratıcı araç fikirlerini erişilebilir web deneyimlerine dönüştürdüm.",
+          description: "Müzik, anlatı, üç boyutlu mekân ve yaratıcı araçları etkileşimli web deneyimlerinde bir araya getirdim.",
           evidence: "Fikkis · desAIn · AudioRoom · Remember You Must Die",
         },
         {
@@ -228,36 +239,37 @@ export const cvContent: Record<Locale, CvContent> = {
       ],
     },
     goals: {
-      intro: "Hedefim; ürün, kullanıcı deneyimi ve oyun tasarımı pratiğimi gerçek kullanıcılarla doğrulanan projeler ve ekip çalışması içinde geliştirmek.",
+      intro: "Ürün, kullanıcı deneyimi ve oyun tasarımı pratiğimi kullanıcı geri bildirimi ve ekip çalışmasıyla geliştirmeyi hedefliyorum.",
       items: [
         {
           title: "Ürün & UI/UX pratiği",
           description: "Problem tanımı, kullanıcı akışı, arayüz ve test kararlarında daha güçlü ve tutarlı bir yaklaşım geliştirmek.",
         },
         {
-          title: "Oyun & interaktif deneyimler",
+          title: "Oyun & Etkileşimli Deneyimler",
           description: "Oyun mekanikleri, sistemler ve oyuncu deneyimi üzerine yeni, oynanabilir prototipler üretmeye devam etmek.",
         },
         {
           title: "Gerçek kullanıcılarla doğrulama",
-          description: "Ürünleri varsayımlar yerine kullanıcı geri bildirimi ve testlerle geliştirmek.",
+          description: "Ürünleri varsayımlar yerine kullanıcı geri bildirimi ve kullanılabilirlik testleriyle geliştirmek.",
         },
         {
           title: "Hızlı prototipleme ve AI destekli üretim",
-          description: "Tasarım ve teknik araçları kullanarak fikirleri daha hızlı test edilebilir prototiplere dönüştürmek.",
+          description: "Tasarım ve teknik araçları kullanarak fikirleri test edilebilir prototiplere daha hızlı dönüştürmek.",
         },
         {
-          title: "Ekip içinde gerçek ürün deneyimi",
-          description: "Çok disiplinli ekiplerde ürün süreçlerine katılarak staj/junior seviyede gerçek çalışma deneyimi kazanmak.",
+          title: "Ekip İçinde Ürün Geliştirme",
+          description: "Çok disiplinli ekiplerde ürün geliştirme süreçlerine katılarak profesyonel deneyim kazanmak.",
         },
       ],
     },
   },
   en: {
+    footerCredit: "By MeMoDe",
     sections: {
       profile: "Profile",
       projects: "Projects",
-      experience: "Project Experience",
+      experience: "Production Experience",
       goals: "Goals",
     },
     sidebar: {
@@ -265,7 +277,7 @@ export const cvContent: Record<Locale, CvContent> = {
       communication: "Contact",
       education: "Education",
       skills: "Skills",
-      educationLines: ["Marmara University", "Physics Department", "Year 3"],
+      educationLines: ["Marmara University — Physics, 4th Year"],
       skillGroups: [
         {
           title: "General",
@@ -273,18 +285,18 @@ export const cvContent: Record<Locale, CvContent> = {
         },
         {
           title: "Product & UX",
-          items: ["Figma", "Wireframe", "User flow", "Information architecture", "Interaction design", "Prototyping"],
+          items: ["Figma", "Wireframing", "User flows", "Information architecture", "Interaction design", "Prototyping"],
         },
         {
           title: "Games & Interaction",
-          items: ["Game mechanics", "Game loops", "Game UI/UX", "Game prototyping"],
+          items: ["Game mechanics", "Game loops", "Game UI/UX", "Interactive prototyping"],
         },
         {
-          title: "Application & Web",
+          title: "Apps & Web",
           items: ["React Native", "Expo", "Supabase", "Web technologies"],
         },
         {
-          title: "AI & Delivery",
+          title: "AI & Tools",
           items: ["AI-assisted research", "AI-assisted prototyping", "Cursor", "GitHub", "Vercel"],
         },
       ],
@@ -295,104 +307,111 @@ export const cvContent: Record<Locale, CvContent> = {
       emailBody: "Hello Çayan,\n\nI would like to get in touch about your portfolio.\n\n",
       openPortrait: "Enlarge profile photo",
       closePortrait: "Close profile photo",
-      showDetails: "Show CV details",
-      hideDetails: "Hide CV details",
+      showDetails: "Show Details",
+      hideDetails: "Hide Details",
     },
     profile: {
       summary:
-        "I am a third-year Physics student at Marmara University. I work on digital products, user experience and game design, turning ideas into tangible experiences through research, design and rapid prototyping.",
-      note: "I bring the analytical and systematic approach of my physics education into my product and experience design practice.",
+        "I am a fourth-year Physics student at Marmara University. I work on digital products, user experience and game design, focusing on turning ideas into tangible experiences through research, design and rapid prototyping.",
       highlights: [
         {
           title: "Product Thinking",
-          description: "I consider user needs, product purpose and the core flow together.",
+          description: "I consider user needs, the product’s purpose, and the core flow together.",
         },
         {
           title: "UI/UX & Prototyping",
-          description: "I use Figma to develop user flows, interfaces and testable prototypes.",
+          description: "I test assumptions with early prototypes and simplify them through feedback.",
         },
         {
           title: "Games & Interaction",
-          description: "I design interactions through mechanics, game loops and player feedback.",
+          description: "I design interactions through game mechanics, game loops and player experience.",
         },
       ],
     },
     projects: {
-      intro: "Selected projects developed through product thinking, user flows, interface design and working prototypes.",
+      intro: "A selection of projects I developed through product thinking, user flows, interface design and working prototypes.",
       platformLabel: "Platform",
       roleLabel: "Role",
+      toolsLabel: "Tools",
       viewLabel: "View project",
+      allProjectsLabel: "View all projects",
+      archivePrintLabel: "Fikkis Project Archive",
       items: [
         {
           slug: "etkinlink",
           title: "EtkinLink",
           description: "A mobile product prototype combining event discovery, participant rooms and interest-based matching.",
-          platform: "Mobile · Figma",
+          platform: "Mobile",
           status: "Prototype",
           role: "Product concept · User flows · UI/UX · Prototyping",
+          tools: "Figma",
         },
         {
           slug: "universe",
           title: "UniVerse",
           description: "A university-focused mobile product bringing campus feeds, communities and events into one experience.",
-          platform: "Mobile · Figma Make",
-          status: "Available on iOS",
+          platform: "iOS",
+          status: "Live",
           role: "Product design · UI/UX · Prototyping",
+          tools: "Figma Make",
         },
         {
           slug: "sorita",
           title: "SoRita",
           description: "A social city experience connecting places, memories and people through routes, lists and sharing flows.",
-          platform: "Mobile · Figma Make",
-          status: "Live on iOS + Android",
+          platform: "iOS / Android",
+          status: "Live",
           role: "Product design · User flows · UI/UX",
+          tools: "Figma Make",
         },
         {
-          slug: "wmatch",
-          title: "WMatch",
-          description: "A product concept that builds taste profiles from viewing habits and suggests matches around shared titles.",
-          platform: "Mobile · Figma Make",
-          status: "MVP · In testing",
-          role: "Product concept · Flow design · UI/UX · Prototyping",
+          slug: "remember-you-must-die",
+          title: "Remember You Must Die",
+          description: "An atmospheric interactive web experience combining music, light and space around the theme of mortality.",
+          platform: "Web",
+          status: "Live",
+          role: "Experience design · Interaction · Visual narrative",
+          tools: "Three.js · WebGL",
         },
         {
           slug: "fikkis",
           title: "Fikkis",
-          description: "A project archive bringing mobile products, web experiences, games and creative experiments together.",
+          description: "A personal project archive bringing mobile products, web experiences, games and creative work together.",
           platform: "Web",
           status: "Live",
           role: "Information architecture · Project presentation · Web experience",
+          tools: "Next.js · Vercel",
         },
         {
           slug: "bibish",
           title: "Bibish",
           description: "A first-person web game built around area control, team forts and NPC armies.",
-          platform: "Web game",
+          platform: "Browser · Desktop",
           status: "Live",
           role: "Game design · Mechanics · Interaction · Prototyping",
+          tools: "Three.js · WebGL2",
         },
       ],
-      archiveNote: "Current project links and the full archive are available on Fikkis.",
     },
     experience: {
-      intro: "The roles I take across independent projects and the production practice I have developed while turning ideas into working experiences.",
+      intro: "My production practice across mobile products, games, web experiences, and independent publishing.",
       items: [
         {
           label: "Mobile Product",
           title: "Product design and working prototypes",
-          description: "I developed problem framing, user flows, interfaces and interactive prototypes for EtkinLink, UniVerse, SoRita and WMatch.",
+          description: "I developed mobile product ideas through problem framing, user flows, interface design, and interactive prototyping.",
           evidence: "EtkinLink · UniVerse · SoRita · WMatch",
         },
         {
           label: "Games & Interaction",
           title: "From mechanics to playable experiences",
-          description: "Using Pygame and browser technologies, I worked on game loops, level structures, player feedback and interaction systems.",
+          description: "Across game projects, I worked on game loops, level structures, player feedback and interaction systems.",
           evidence: "Bibish · Merbut · Battleship · Last 40 Seconds",
         },
         {
           label: "Web Experience",
           title: "Interactive narratives and creative tools",
-          description: "I turned ideas involving music, narrative, three-dimensional spaces and creative tools into accessible web experiences.",
+          description: "I combined music, narrative, three-dimensional spaces, and creative tools in interactive web experiences.",
           evidence: "Fikkis · desAIn · AudioRoom · Remember You Must Die",
         },
         {
@@ -404,7 +423,7 @@ export const cvContent: Record<Locale, CvContent> = {
       ],
     },
     goals: {
-      intro: "My goal is to develop my product, user experience and game design practice through projects validated with real users and through teamwork.",
+      intro: "I want to develop my product, user experience, and game design practice through user feedback and teamwork.",
       items: [
         {
           title: "Product & UI/UX practice",
@@ -416,15 +435,15 @@ export const cvContent: Record<Locale, CvContent> = {
         },
         {
           title: "Validation with real users",
-          description: "Develop products through user feedback and testing rather than assumptions.",
+          description: "Develop products through user feedback and usability testing rather than assumptions.",
         },
         {
           title: "Rapid prototyping & AI-assisted production",
           description: "Use design and technical tools to turn ideas into testable prototypes more quickly.",
         },
         {
-          title: "Real product experience in teams",
-          description: "Take part in product processes within multidisciplinary teams and gain real internship/junior-level work experience.",
+          title: "Product Development in Teams",
+          description: "Take part in product development within multidisciplinary teams and gain professional experience.",
         },
       ],
     },

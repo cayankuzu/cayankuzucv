@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="tr" className={`${geistSans.variable} ${geistMono.variable}`} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

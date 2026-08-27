@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Download, ExternalLink } from "lucide-react";
+import { ArrowLeft, Download, ExternalLink } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { LocaleSync } from "@/components/locale-sync";
 import { isLocale, locales, siteCopy } from "@/data/i18n";
-import { getProjectDetailSections, getRoleLabel, getStatusLabel } from "@/data/project-detail";
+import {
+  getPlatformLabel,
+  getProjectDetailSections,
+  getRoleLabel,
+  getStatusLabel,
+  getToolsLabel,
+} from "@/data/project-detail";
 import { getProjectImageAlt, getProjectScreenAlt, getProjectText } from "@/data/project-translations";
 import { profile } from "@/data/profile";
 import { getProjectById, projects } from "@/data/projects";
@@ -55,6 +61,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const copy = siteCopy[locale];
   const text = getProjectText(project, locale);
   const sections = getProjectDetailSections(project, locale);
+  const tools = getToolsLabel(project, locale);
   const path = `/projects/${project.id}`;
 
   return (
@@ -94,12 +101,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <dl className="detailMeta">
           <div>
             <dt>{copy.common.role}</dt>
-            <dd>{getRoleLabel(locale)}</dd>
+            <dd>{getRoleLabel(project, locale)}</dd>
           </div>
           <div>
             <dt>{copy.common.status}</dt>
             <dd>{getStatusLabel(project, locale)}</dd>
           </div>
+          <div>
+            <dt>{copy.common.platform}</dt>
+            <dd>{getPlatformLabel(project, locale)}</dd>
+          </div>
+          {tools ? (
+            <div>
+              <dt>{copy.common.tools}</dt>
+              <dd>{tools}</dd>
+            </div>
+          ) : null}
         </dl>
 
         <div className="detailSections">
@@ -117,7 +134,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {project.images && project.images.length > 1 ? (
           <section className="detailScreens">
             <header>
-              <p>{copy.common.selectedScreens}</p>
+              <h2>{copy.common.selectedScreens}</h2>
             </header>
             <div>
               {project.images.map((image, index) => (
@@ -138,33 +155,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <h2>{copy.common.moreLinks}</h2>
           <div>
             {project.liveUrl ? (
-              <a href={project.liveUrl} target="_blank" rel="noreferrer">
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 {copy.common.liveProject}
                 <ExternalLink aria-hidden="true" size={16} strokeWidth={1.8} />
               </a>
             ) : null}
             {project.figmaUrl ? (
-              <a href={project.figmaUrl} target="_blank" rel="noreferrer">
+              <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer">
                 {copy.common.openPrototype}
                 <ExternalLink aria-hidden="true" size={16} strokeWidth={1.8} />
               </a>
             ) : null}
             {project.downloadUrl ? (
-              <a href={project.downloadUrl} target="_blank" rel="noreferrer">
+              <a href={project.downloadUrl} target="_blank" rel="noopener noreferrer">
                 {copy.common.downloadProject}
                 <Download aria-hidden="true" size={16} strokeWidth={1.8} />
               </a>
             ) : null}
             {project.secondaryUrl ? (
-              <a href={project.secondaryUrl} target="_blank" rel="noreferrer">
+              <a href={project.secondaryUrl} target="_blank" rel="noopener noreferrer">
                 Gumroad
                 <ExternalLink aria-hidden="true" size={16} strokeWidth={1.8} />
               </a>
             ) : null}
-            <a href={project.fikisUrl} target="_blank" rel="noreferrer">
-              {copy.common.viewOnFikkis}
-              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.8} />
-            </a>
           </div>
         </section>
       </article>

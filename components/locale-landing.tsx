@@ -6,8 +6,12 @@ import { locales, type Locale } from "@/data/i18n";
 const storageKey = "portfolio-locale";
 
 function getStoredLocale(): Locale {
-  const stored = window.localStorage.getItem(storageKey);
-  return locales.includes(stored as Locale) ? (stored as Locale) : "tr";
+  try {
+    const stored = window.localStorage.getItem(storageKey);
+    return locales.includes(stored as Locale) ? (stored as Locale) : "tr";
+  } catch {
+    return "tr";
+  }
 }
 
 export function LocaleLanding() {

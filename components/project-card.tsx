@@ -55,7 +55,7 @@ export function ProjectCard({ project, locale, preload = false }: ProjectCardPro
         <dl className="archiveProjectMeta">
           <div>
             <dt>{copy.common.role}</dt>
-            <dd>{getRoleLabel(locale)}</dd>
+            <dd>{getRoleLabel(project, locale)}</dd>
           </div>
           <div>
             <dt>{copy.common.status}</dt>

@@ -22,7 +22,7 @@ export type Project = {
   hook: string;
   description: string;
   role: string;
-  status: "Live" | "Prototype" | "Available";
+  status: "Live" | "Prototype" | "MVP" | "Available";
   statusText?: {
     tr: string;
     en: string;
@@ -86,10 +86,10 @@ export const projects: Project[] = [
     description:
       "Öğrencileri kampüs akışı, topluluklar, etkinlikler ve ortak ilgi alanları çevresinde buluşturan mobil UI/UX mockup ve etkileşimli prototip.",
     role: "Independent project",
-    status: "Available",
+    status: "Live",
     statusText: {
-      tr: "iOS tarafında mevcut",
-      en: "Available on iOS",
+      tr: "Yayında",
+      en: "Live",
     },
     thumbnail: "/projects/universe-1.png",
     thumbnailAlt: "UniVerse mobil uygulama ekranları",
@@ -126,10 +126,10 @@ export const projects: Project[] = [
     description:
       "Mekânları, anıları ve insanları aynı haritada buluşturan; rota, liste ve paylaşım akışları içeren mobil UI/UX mockup ve etkileşimli prototip.",
     role: "Independent project",
-    status: "Available",
+    status: "Live",
     statusText: {
-      tr: "iOS + Android'de yayında",
-      en: "Published on iOS + Android",
+      tr: "Yayında",
+      en: "Live",
     },
     thumbnail: "/projects/sorita-1.png",
     thumbnailAlt: "SoRita mobil uygulama ekranları",
@@ -193,7 +193,7 @@ export const projects: Project[] = [
     description:
       "Film ve dizi izleme alışkanlıklarından bir zevk profili çıkaran; ortak yapımlar ve türler etrafında eşleşme öneren mobil ürün fikri.",
     role: "Independent project",
-    status: "Prototype",
+    status: "MVP",
     thumbnail: "/projects/wmatch-1.png",
     thumbnailAlt: "WMatch mobil uygulama ekranları",
     images: [
@@ -202,11 +202,9 @@ export const projects: Project[] = [
       "/projects/wmatch-3.png",
       "/projects/wmatch-4.png",
     ],
-    figmaUrl:
-      "https://www.figma.com/make/NCkE1gjOXWA78mtbYdgz7z/WMatch?fullscreen=1&t=O3uk8ynWSDA7YVm7-1&code-node-id=0-9",
     statusText: {
-      tr: "MVP / test / geliştirme sürecinde",
-      en: "MVP / testing / in development",
+      tr: "MVP · Test sürecinde",
+      en: "MVP · In testing",
     },
     fikisUrl: onFikkis,
     caseStudy: [

@@ -47,9 +47,10 @@ export const siteCopy = {
     common: {
       role: "Rol",
       status: "Durum",
+      platform: "Platform",
+      tools: "Araçlar",
       language: "Dil",
-      downloadCv: "CV'yi indir",
-      cvUnavailable: "CV PDF'i eklendiğinde aktif olacaktır.",
+      downloadCv: "CV'yi İndir",
       viewProject: "Projeyi incele",
       viewOnFikkis: "Fikkis'te görüntüle",
       liveProject: "Canlı projeyi aç",
@@ -67,7 +68,6 @@ export const siteCopy = {
       content: "İçerik",
       details: "Detaylar",
       lessDetails: "Detayları kapat",
-      viewFullArchive: "Tüm proje arşivini görüntüle",
     },
     sidebar: {
       title: "Ürün, UI/UX ve Oyun Tasarımı",
@@ -82,7 +82,7 @@ export const siteCopy = {
       intro:
         "Dijital ürünler, etkileşimli deneyimler ve oyun fikirleri üzerine çalışan bağımsız bir tasarım adayıyım.",
       educationLabel: "Eğitim",
-      educationValue: "Marmara Üniversitesi · Fizik Bölümü · 3. sınıf",
+      educationValue: "Marmara Üniversitesi — Fizik Bölümü, 4. sınıf",
       focusLabel: "Odak alanları",
       focus: ["Dijital ürünler", "Etkileşimli deneyimler", "Oyun tasarımı"],
       goalLabel: "Kariyer yönü",
@@ -159,7 +159,7 @@ export const siteCopy = {
       eyebrow: "Eğitim",
       title: "Marmara Üniversitesi",
       program: "Fizik Bölümü",
-      level: "3. sınıf öğrencisi",
+      level: "4. sınıf öğrencisi",
       dateLabel: "Tarih",
       dateValue: "Eklenecek",
       note:
@@ -179,7 +179,7 @@ export const siteCopy = {
       labels: ["Profil", "Eğitim", "Deneyim", "Projeler", "Araçlar", "Sertifikalar"],
       values: [
         "Ürün tasarımı, UI/UX, etkileşimli deneyimler ve oyun tasarımı.",
-        "Marmara Üniversitesi · Fizik Bölümü · 3. sınıf.",
+        "Marmara Üniversitesi — Fizik Bölümü, 4. sınıf.",
         "Bağımsız ürün, web ve oyun projeleri.",
         "Mobil uygulama, web, oyun ve içerik kategorilerinde Fikkis proje arşivi.",
         "Figma, Cursor, GitHub, Vercel ve yapay zekâ destekli üretim akışları.",
@@ -207,6 +207,7 @@ export const siteCopy = {
       gameplayFocus: "Oynanış odağı",
       contentFocus: "Konsept",
       availability: "Yayın",
+      myContribution: "Rolüm ve katkım",
       currentStatus: "Mevcut durum",
       mobileOutput:
         "Mevcut çıktı; proje sayfası, uygun olduğunda etkileşimli prototip bağlantısı ve doğrulanmış indirme bağlantısından oluşur.",
@@ -242,9 +243,10 @@ export const siteCopy = {
     common: {
       role: "Role",
       status: "Status",
+      platform: "Platform",
+      tools: "Tools",
       language: "Language",
       downloadCv: "Download CV",
-      cvUnavailable: "This control will be enabled when the CV PDF is added.",
       viewProject: "View project",
       viewOnFikkis: "View on Fikkis",
       liveProject: "Open live project",
@@ -262,7 +264,6 @@ export const siteCopy = {
       content: "Content",
       details: "Details",
       lessDetails: "Close details",
-      viewFullArchive: "Open full project archive",
     },
     sidebar: {
       title: "Product, UI/UX & Game Design",
@@ -277,7 +278,7 @@ export const siteCopy = {
       intro:
         "An independent design candidate working on digital products, interactive experiences and game ideas.",
       educationLabel: "Education",
-      educationValue: "Marmara University · Physics Department · 3rd year",
+      educationValue: "Marmara University — Physics, 4th Year",
       focusLabel: "Focus areas",
       focus: ["Digital products", "Interactive experiences", "Game design"],
       goalLabel: "Career direction",
@@ -354,7 +355,7 @@ export const siteCopy = {
       eyebrow: "Education",
       title: "Marmara University",
       program: "Physics Department",
-      level: "3rd year student",
+      level: "4th Year student",
       dateLabel: "Date",
       dateValue: "To be added",
       note:
@@ -374,7 +375,7 @@ export const siteCopy = {
       labels: ["Profile", "Education", "Experience", "Projects", "Tools", "Certificates"],
       values: [
         "Product design, UI/UX, interactive experiences and game design.",
-        "Marmara University · Physics Department · 3rd year.",
+        "Marmara University — Physics, 4th Year.",
         "Independent product, web and game projects.",
         "Fikkis project archive across mobile, web, game and content categories.",
         "Figma, Cursor, GitHub, Vercel and AI-assisted production workflows.",
@@ -402,6 +403,7 @@ export const siteCopy = {
       gameplayFocus: "Gameplay focus",
       contentFocus: "Concept",
       availability: "Publication",
+      myContribution: "My role and contribution",
       currentStatus: "Current status",
       mobileOutput:
         "The current output includes a project page, an interactive prototype link where available and verified download links where they exist.",

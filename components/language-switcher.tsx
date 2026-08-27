@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type Locale } from "@/data/i18n";
+import { siteCopy, type Locale } from "@/data/i18n";
 
 type LanguageSwitcherProps = {
   locale: Locale;
@@ -12,11 +12,15 @@ const storageKey = "portfolio-locale";
 
 export function LanguageSwitcher({ locale, path = "" }: LanguageSwitcherProps) {
   function rememberLocale(nextLocale: Locale) {
-    window.localStorage.setItem(storageKey, nextLocale);
+    try {
+      window.localStorage.setItem(storageKey, nextLocale);
+    } catch {
+      // Locale navigation still works when storage is unavailable.
+    }
   }
 
   return (
-    <div className="languageSwitcher" aria-label={locale === "tr" ? "Dil seçimi" : "Language selector"}>
+    <div className="languageSwitcher" role="group" aria-label={siteCopy[locale].common.language}>
       <Link href={`/tr${path}`} aria-current={locale === "tr" ? "page" : undefined} onClick={() => rememberLocale("tr")}>
         TR
       </Link>
