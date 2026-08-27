@@ -16,8 +16,8 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
         body: "Deneyim; etkinlik keşfi, katılımcı odaları, ilgi temelli eşleşme ve karşılıklı beğeni sonrası özel sohbet adımlarına odaklanıyor.",
       },
       {
-        title: "Prototip",
-        body: "Mevcut çıktı, Figma üzerinden incelenebilen bir UI/UX tasarımı ve etkileşimli prototip.",
+        title: "Geliştirme durumu",
+        body: "React Native ve Expo istemcisi, Supabase backend'iyle birlikte iOS ve Android için geliştiriliyor. Uygulama henüz mağazada yayımlanmadı; Figma prototipi ayrıca incelenebilir.",
       },
     ],
     en: [
@@ -26,8 +26,8 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
         body: "The experience focuses on event discovery, participant rooms, interest-based matching and private chat after a mutual match.",
       },
       {
-        title: "Prototype",
-        body: "The current output is a UI/UX design and interactive prototype available in Figma.",
+        title: "Development status",
+        body: "The React Native and Expo client is being developed for iOS and Android with a Supabase backend. The app has not been released to stores yet; its Figma prototype remains available.",
       },
     ],
   },
@@ -35,21 +35,21 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
     tr: [
       {
         title: "Deneyim",
-        body: "Kampüs akışı, topluluklar ve etkinlikler öğrencilerin üniversite deneyimini daha görünür ve bağlantılı kılmak için tek akışta buluşuyor.",
+        body: "Etkinlik keşfi, öğrenci ve kulüp profilleri, etkinlik albümleri, fotoğraf paylaşımı, takip, beğeni ve yorum akışları tek deneyimde buluşuyor.",
       },
       {
         title: "Yayın durumu",
-        body: "Uygulama iOS'ta yayında. Etkileşimli tasarım Figma Make üzerinden incelenebilir.",
+        body: "Uygulama App Store ve Google Play'de yayında. Etkileşimli tasarım Figma Make üzerinden ayrıca incelenebilir.",
       },
     ],
     en: [
       {
         title: "Experience",
-        body: "Campus feeds, communities and events come together in one flow to make university life more visible and connected.",
+        body: "Event discovery, student and club profiles, event albums, photo sharing, follows, likes and comments come together in one experience.",
       },
       {
         title: "Release status",
-        body: "The app is live on iOS. Its interactive design can also be reviewed in Figma Make.",
+        body: "The app is live on the App Store and Google Play. Its interactive design can also be reviewed in Figma Make.",
       },
     ],
   },
@@ -57,7 +57,7 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
     tr: [
       {
         title: "Kullanıcı deneyimi",
-        body: "Kullanıcılar rota oluşturabilir, yerleri listeler hâlinde düzenleyebilir ve şehir deneyimlerini arkadaşlarıyla paylaşabilir.",
+        body: "Kullanıcılar haritada mekân kartları oluşturabilir, yerleri herkese açık veya özel listelerde düzenleyebilir; fotoğraf, yorum, takip, beğeni ve paylaşım akışlarıyla etkileşime girebilir.",
       },
       {
         title: "Yayın durumu",
@@ -67,7 +67,7 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
     en: [
       {
         title: "User experience",
-        body: "Users can create routes, organise places into lists and share their city experiences with friends.",
+        body: "Users can create place cards on a map, organise them into public or private lists, and interact through photos, comments, follows, likes and sharing.",
       },
       {
         title: "Release status",
@@ -79,21 +79,21 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
     tr: [
       {
         title: "Ürün konsepti",
-        body: "İzleme alışkanlıkları bir zevk profiline dönüşüyor; ortak yapımlar ve türler yeni eşleşmeler için başlangıç noktası oluşturuyor.",
+        body: "Ortak film ve diziler, favoriler ve izleme anları uyum odaklı eşleşmelere; karşılıklı beğeniler ise sohbete dönüşüyor.",
       },
       {
         title: "Mevcut durum",
-        body: "MVP test sürecinde. Henüz mağaza yayını bulunmadığı için çalışma ürün fikri ve prototip olarak sunuluyor.",
+        body: "18+ mobil sosyal uygulamanın iOS sürümü App Store'da yayında; Android sürümü yayın hazırlığında.",
       },
     ],
     en: [
       {
         title: "Product concept",
-        body: "Viewing habits become a taste profile, while shared titles and genres provide the starting point for new matches.",
+        body: "Shared films, series, favourites and current viewing become compatibility-based matches, while mutual likes open a chat.",
       },
       {
         title: "Current status",
-        body: "The MVP is in testing. As there is no store release yet, the work is presented as a product concept and prototype.",
+        body: "The 18+ mobile social app is live on the App Store; its Android release is in preparation.",
       },
     ],
   },
@@ -123,21 +123,21 @@ const selectedProjectSections: Partial<Record<string, Record<Locale, DetailSecti
     tr: [
       {
         title: "Ana oyun döngüsü",
-        body: "Oyuncu bir takıma katılıyor, kaleleri ele geçiriyor ve açık alan savaşında takımının alan kontrolünü ilerletiyor.",
+        body: "Oyuncu bir takıma katılıyor; 10 karakolu ele geçirmek, araziyi takım rengine boyamak ve açık alan savaşında üstünlük kurmak için mücadele ediyor.",
       },
       {
-        title: "Oyuncu deneyimi",
-        body: "Alan boyama, takım kaleleri, farklı biyomlar ve NPC orduları tarayıcıda oynanabilen canlı bir deneyimde birleşiyor.",
+        title: "Çok oyunculu mimari",
+        body: "Canlı sürümde NPC orduları bulunmuyor. Oyuncular WebSocket üzerinden tek global odaya bağlanıyor; oda durumu Cloudflare Durable Objects üzerinde çalışıyor.",
       },
     ],
     en: [
       {
         title: "Core loop",
-        body: "The player joins a team, captures forts and advances their team's area control across an open-field battle.",
+        body: "The player joins a team and fights to capture ten outposts, paint the terrain in their team's colour and control the open battlefield.",
       },
       {
-        title: "Player experience",
-        body: "Territory painting, team forts, varied biomes and NPC armies come together in a live browser-playable experience.",
+        title: "Multiplayer architecture",
+        body: "The live runtime has no NPC armies. Players connect to one global room over WebSocket, with shared room state running on Cloudflare Durable Objects.",
       },
     ],
   },
@@ -149,8 +149,20 @@ export function getStatusLabel(project: Project, locale: Locale) {
   }
 
   const labels = {
-    tr: { Live: "Canlı", Prototype: "Prototip", MVP: "MVP", Available: "Erişilebilir" },
-    en: { Live: "Live", Prototype: "Prototype", MVP: "MVP", Available: "Available" },
+    tr: {
+      Live: "Canlı",
+      Development: "Geliştiriliyor",
+      Prototype: "Prototip",
+      MVP: "MVP",
+      Available: "Erişilebilir",
+    },
+    en: {
+      Live: "Live",
+      Development: "In development",
+      Prototype: "Prototype",
+      MVP: "MVP",
+      Available: "Available",
+    },
   } as const;
 
   return labels[locale][project.status];

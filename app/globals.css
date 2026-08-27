@@ -653,6 +653,10 @@ button.infoPortrait:hover img {
 
 .projectSummaryList {
   display: grid;
+}
+
+.projectSummaryRow {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 30px;
 }
@@ -670,7 +674,7 @@ button.infoPortrait:hover img {
   min-width: 0;
 }
 
-.projectSummaryList article:nth-child(-n + 2) {
+.projectSummaryRow:first-child article {
   border-top: 2px solid var(--soft-line);
 }
 
@@ -762,7 +766,7 @@ button.infoPortrait:hover img {
   color: var(--accent);
 }
 
-.projectSummaryList article:nth-last-child(-n + 2) {
+.projectSummaryRow:last-child article {
   border-bottom: 1px solid var(--soft-line);
 }
 
@@ -1308,22 +1312,22 @@ button.infoPortrait:hover img {
     gap: 12px;
   }
 
-  .projectSummaryList {
+  .projectSummaryRow {
     grid-template-columns: 1fr;
   }
 
   .projectSummaryList article,
-  .projectSummaryList article:nth-child(-n + 2),
-  .projectSummaryList article:nth-last-child(-n + 2) {
+  .projectSummaryRow:first-child article,
+  .projectSummaryRow:last-child article {
     border-top: 1px solid var(--soft-line);
     border-bottom: 0;
   }
 
-  .projectSummaryList article:first-child {
+  .projectSummaryRow:first-child article:first-child {
     border-top-width: 2px;
   }
 
-  .projectSummaryList article:last-child {
+  .projectSummaryRow:last-child article:last-child {
     border-bottom: 1px solid var(--soft-line);
   }
 
@@ -1436,7 +1440,7 @@ button.infoPortrait:hover img {
 
   .screenPaper {
     width: 210mm;
-    min-height: 297mm;
+    min-height: 891mm;
     grid-template-areas:
       "sidebar identity"
       "sidebar main";
@@ -1616,13 +1620,30 @@ button.infoPortrait:hover img {
   }
 
   .projectSummaryList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 5mm;
+    display: block;
+    padding-bottom: 10mm;
+  }
+
+  .projectSummaryRow {
+    display: block;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .projectSummaryRow:nth-child(3) {
+    padding-top: 0;
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .projectSummaryRow:nth-child(3) article:first-child {
+    padding-top: 10mm;
+    border-top: 0;
   }
 
   .projectSummaryList article,
-  .projectSummaryList article:nth-child(-n + 2),
-  .projectSummaryList article:nth-last-child(-n + 2) {
+  .projectSummaryRow:first-child article,
+  .projectSummaryRow:last-child article {
     grid-template-columns: 6mm minmax(0, 1fr);
     gap: 2mm;
     padding: 3mm 0;
@@ -1671,12 +1692,16 @@ button.infoPortrait:hover img {
     padding: 2.5mm 0;
     border-top: 0.25mm solid var(--soft-line);
     border-bottom: 0.25mm solid var(--soft-line);
+    color: var(--ink);
     font-size: 7.5pt;
+    text-decoration: none;
   }
 
   .printArchiveFallback span {
     color: var(--accent);
     font-family: var(--font-geist-mono), monospace;
+    text-decoration: underline;
+    text-underline-offset: 1mm;
   }
 
   .experienceList article {

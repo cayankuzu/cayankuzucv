@@ -22,7 +22,7 @@ export type Project = {
   hook: string;
   description: string;
   role: string;
-  status: "Live" | "Prototype" | "MVP" | "Available";
+  status: "Live" | "Development" | "Prototype" | "MVP" | "Available";
   statusText?: {
     tr: string;
     en: string;
@@ -34,6 +34,8 @@ export type Project = {
   liveUrl?: string;
   figmaUrl?: string;
   downloadUrl?: string;
+  appStoreUrl?: string;
+  googlePlayUrl?: string;
   secondaryUrl?: string;
   fikisUrl: string;
   caseStudy: CaseStudySection[];
@@ -48,9 +50,13 @@ export const projects: Project[] = [
     category: "mobile",
     hook: "Bir etkinlik keşfet; aynı heyecanı paylaşacağın insanlarla tanış.",
     description:
-      "Etkinlik keşfi, katılımcı odaları ve ilgi temelli eşleşmeyi tek mobil deneyimde buluşturan UI/UX mockup ve etkileşimli prototip.",
+      "Şehir etkinliklerini keşfetme, katılımcı odaları, ilgi temelli eşleşme ve karşılıklı beğeni sonrası özel sohbet akışlarını birleştiren iOS/Android uygulaması.",
     role: "Independent project",
-    status: "Prototype",
+    status: "Development",
+    statusText: {
+      tr: "Geliştiriliyor",
+      en: "In development",
+    },
     thumbnail: "/projects/etkinlink-1.png",
     thumbnailAlt: "EtkinLink mobil uygulama ekranları",
     images: [
@@ -60,21 +66,22 @@ export const projects: Project[] = [
       "/projects/etkinlink-4.png",
     ],
     featured: true,
+    liveUrl: "https://cayankuzu.github.io/EtkinLink_web/",
     figmaUrl:
       "https://www.figma.com/proto/RLPPToWydcFxLtnlvTr0mi/EtkinLink?node-id=32-1772&viewport=-607%2C-758%2C0.69&t=BmlrdaiaacIsarlK-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=97%3A386&show-proto-sidebar=1&page-id=12%3A8",
     fikisUrl: onFikkis,
     caseStudy: [
       {
         title: "Overview",
-        body: "EtkinLink, şehirdeki etkinlikleri keşfetmeyi, etkinlik sohbetlerine katılmayı ve ortak ilgi alanları üzerinden yeni insanlarla tanışmayı bir araya getiren bir mobil ürün fikri.",
+        body: "EtkinLink, şehir etkinliklerini keşfetmeyi; etkinlik odalarında sosyalleşmeyi ve ortak ilgi alanları üzerinden yeni insanlarla tanışmayı bir araya getiren iOS/Android uygulaması.",
       },
       {
         title: "Product focus",
         body: "Akış; etkinlik keşfi, katılımcı odaları ve karşılıklı beğeni sonrasında özel sohbet adımlarına odaklanıyor.",
       },
       {
-        title: "Final design",
-        body: "Mevcut çıktı, Figma üzerinden incelenebilen bir UI/UX mockup ve etkileşimli prototip.",
+        title: "Implementation",
+        body: "React Native ve Expo istemcisi; Supabase üzerinde PostgreSQL, RLS, Edge Functions, Auth ve Storage katmanlarıyla geliştiriliyor. Henüz mağazada yayımlanmadı.",
       },
     ],
   },
@@ -84,7 +91,7 @@ export const projects: Project[] = [
     category: "mobile",
     hook: "Üniversite hayatının tamamı tek bir dijital evrende.",
     description:
-      "Öğrencileri kampüs akışı, topluluklar, etkinlikler ve ortak ilgi alanları çevresinde buluşturan mobil UI/UX mockup ve etkileşimli prototip.",
+      "Öğrencileri ve kulüpleri etkinlikler, kampüs akışı, etkinlik albümleri, takip ve sosyal etkileşimler çevresinde buluşturan iOS/Android uygulaması.",
     role: "Independent project",
     status: "Live",
     statusText: {
@@ -99,22 +106,24 @@ export const projects: Project[] = [
       "/projects/universe-3.png",
     ],
     featured: true,
+    liveUrl: "https://cayankuzu.github.io/uniVerse_web/",
     figmaUrl:
       "https://www.figma.com/make/PifHMriFM6plYxEBFp0ziW/%C3%96%C4%9Frenci-Sosyal-A%C4%9F%C4%B1?fullscreen=1&t=z4tqXaqRw3iPsSzE-1&code-node-id=0-9",
-    downloadUrl: "https://cayankuzu.github.io/uniVerse_web/download/",
+    appStoreUrl: "https://apps.apple.com/tr/app/universe-app/id6761912452",
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.ogrencisosyalagi.app",
     fikisUrl: onFikkis,
     caseStudy: [
       {
         title: "Overview",
-        body: "UniVerse, üniversite hayatını tek bir dijital deneyimde toplamayı amaçlayan bir ürün fikri ve mobil prototip.",
+        body: "UniVerse, öğrencileri ve kulüpleri kampüs yaşamına odaklanan tek bir mobil sosyal ağda buluşturuyor.",
       },
       {
         title: "Experience",
-        body: "Kampüs akışı, topluluklar, etkinlikler ve ortak ilgi alanları; öğrencilerin üniversite deneyimini daha görünür ve bağlantılı kılmak için bir araya geliyor.",
+        body: "Etkinlik keşfi, öğrenci ve kulüp profilleri, etkinlik albümleri, fotoğraf paylaşımı, takip, beğeni ve yorum akışları aynı deneyimde birleşiyor.",
       },
       {
-        title: "Final design",
-        body: "Figma Make üzerinden etkileşimli tasarım, ayrıca proje için bir indirme sayfası mevcut.",
+        title: "Release",
+        body: "React Native, Expo ve Supabase ile geliştirilen uygulama App Store ve Google Play'de yayımlanıyor; Figma Make tasarımı da ayrıca incelenebiliyor.",
       },
     ],
   },
@@ -124,7 +133,7 @@ export const projects: Project[] = [
     category: "mobile",
     hook: "Şehir artık yalnızca bir harita değil, birlikte yazılan sosyal bir hikâye.",
     description:
-      "Mekânları, anıları ve insanları aynı haritada buluşturan; rota, liste ve paylaşım akışları içeren mobil UI/UX mockup ve etkileşimli prototip.",
+      "Haritada mekân kartları ve listeler oluşturmayı; kişi, yer ve medya keşfiyle takip, beğeni, yorum ve paylaşımı birleştiren iOS/Android sosyal uygulaması.",
     role: "Independent project",
     status: "Live",
     statusText: {
@@ -139,22 +148,24 @@ export const projects: Project[] = [
       "/projects/sorita-3.png",
     ],
     featured: true,
+    liveUrl: "https://cayankuzu.github.io/SoRita_web/",
     figmaUrl:
       "https://www.figma.com/make/xFI0Mxo8e6GdMVNfWu0eSm/SoRita?fullscreen=1&t=a9Aa6ncfv0vyOC9N-1&code-node-id=0-9",
-    downloadUrl: "https://cayankuzu.github.io/SoRita_web/download/",
+    appStoreUrl: "https://apps.apple.com/tr/app/sorita-app/id6762198781?l=tr",
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.cayan.sorita.socialmap",
     fikisUrl: onFikkis,
     caseStudy: [
       {
         title: "Overview",
-        body: "SoRita; şehir deneyimlerini mekânlar, anılar ve insanlar üzerinden paylaşılabilir hâle getiren bir mobil ürün fikri.",
+        body: "SoRita, mekânları harita üzerinde keşfetme, kaydetme ve paylaşma etrafında kurulan bir sosyal uygulama.",
       },
       {
         title: "Product focus",
-        body: "Kullanıcılar rotalar oluşturabilir, yerleri listeler ve şehir deneyimlerini arkadaşlarıyla paylaşabilir.",
+        body: "Kullanıcılar herkese açık veya özel mekân listeleri oluşturabilir; fotoğraf ve yorum ekleyebilir, diğer kullanıcıları takip edebilir ve içeriklerle etkileşime girebilir.",
       },
       {
-        title: "Final design",
-        body: "Mevcut çıktı Figma Make üzerinde incelenebilen etkileşimli tasarım ve proje indirme sayfasından oluşuyor.",
+        title: "Release",
+        body: "React Native, Expo, Supabase ve Google Maps ile geliştirilen uygulama App Store ve Google Play'de yayımlanıyor.",
       },
     ],
   },
@@ -164,7 +175,7 @@ export const projects: Project[] = [
     category: "web",
     hook: "Bir şeyler deniyorum.",
     description:
-      "Etkileşimli web deneyimleri, mobil ürünler, oyunlar ve yaratıcı denemeler için proje vitrini.",
+      "Web deneyimlerini, mobil ürünleri, oyunları ve yayınları filtrelenebilir bir arşivde toplayıp doğrudan canlı bağlantılara yönlendiren proje vitrini.",
     role: "Independent project",
     status: "Live",
     featured: true,
@@ -173,7 +184,7 @@ export const projects: Project[] = [
     caseStudy: [
       {
         title: "Overview",
-        body: "Fikkis; tüm proje üretimlerini kategori bazında bir araya getiren kişisel proje vitrini.",
+        body: "Fikkis; web, oyun, mobil ve yayın projelerini kategori bazında bir araya getiren kişisel proje vitrini.",
       },
       {
         title: "Information architecture",
@@ -191,9 +202,9 @@ export const projects: Project[] = [
     category: "mobile",
     hook: "Ne izlediğin, kiminle eşleşeceğini söylesin.",
     description:
-      "Film ve dizi izleme alışkanlıklarından bir zevk profili çıkaran; ortak yapımlar ve türler etrafında eşleşme öneren mobil ürün fikri.",
+      "Ortak film ve dizileri, favorileri ve izleme anlarını uyum odaklı eşleşmelere; karşılıklı beğenileri ise sohbete dönüştüren 18+ iOS/Android mobil sosyal uygulaması.",
     role: "Independent project",
-    status: "MVP",
+    status: "Live",
     thumbnail: "/projects/wmatch-1.png",
     thumbnailAlt: "WMatch mobil uygulama ekranları",
     images: [
@@ -203,14 +214,19 @@ export const projects: Project[] = [
       "/projects/wmatch-4.png",
     ],
     statusText: {
-      tr: "MVP · Test sürecinde",
-      en: "MVP · In testing",
+      tr: "iOS'ta yayında · Android hazırlanıyor",
+      en: "Live on iOS · Android in preparation",
     },
+    appStoreUrl: "https://apps.apple.com/tr/app/wmatch/id6779453259",
     fikisUrl: onFikkis,
     caseStudy: [
       {
         title: "Overview",
-        body: "WMatch, izleme alışkanlıklarını yeni sohbetlerin başlangıç noktasına dönüştüren bir mobil ürün fikri ve prototip.",
+        body: "WMatch, ortak film ve dizi zevklerini uyum odaklı eşleşmelere; karşılıklı beğenileri ise sohbete dönüştüren 18+ mobil sosyal uygulama.",
+      },
+      {
+        title: "Release status",
+        body: "iOS sürümü App Store'da yayında; Android sürümü yayın hazırlığında.",
       },
     ],
   },
@@ -220,7 +236,7 @@ export const projects: Project[] = [
     category: "web",
     hook: "Ölümü hatırlatan bir dünyanın içinde yürümeye cesaret et.",
     description:
-      "Müzik, ışık ve mekânı bir araya getiren etkileşimli bir memento mori deneyimi. Her oda zamanı, hafızayı ve faniliği başka bir atmosferle yeniden kurar.",
+      "Ouroboros, kurukafa, DNA, kum saati ve galaksi modellerini müzik, ışık ayarları ve serbest kamera etkileşimiyle birleştiren 3B memento mori deneyimi.",
     role: "Independent project",
     status: "Live",
     thumbnail: "/projects/remember-ouroboros.png",
@@ -230,11 +246,11 @@ export const projects: Project[] = [
     caseStudy: [
       {
         title: "Overview",
-        body: "Müzik, ışık ve mekânı bir araya getiren etkileşimli bir memento mori deneyimi.",
+        body: "Müzik ve ayarlanabilir ışıklarla kurulan, memento mori temalı etkileşimli bir 3B web deneyimi.",
       },
       {
         title: "Experience",
-        body: "Her oda; zaman, hafıza ve fanilik kavramlarını farklı bir atmosferle yeniden kuruyor.",
+        body: "Kullanıcı; ouroboros, kurukafa, DNA, kum saati ve galaksi modelleri arasında serbest kamerayla dolaşıyor, sahne ışıklarını ve müzik oynatıcıyı kontrol ediyor.",
       },
     ],
   },
@@ -268,7 +284,7 @@ export const projects: Project[] = [
     category: "web",
     hook: "Bir albümü yalnızca dinleme; onun dünyasının içinde dolaş.",
     description:
-      "Albüm arşivini keşfedilebilir dijital odalara dönüştüren bir müzik deneyimi. Redd'in Mükemmel Boşluk evreni ses ile görsel hikâye anlatımını aynı sahnede birleştirir.",
+      "Albüm ve single'ları özgün etkileşim döngüleri ve dinleme akışları sunan oynanabilir 3B dünyalara dönüştüren; dört canlı evren ve iki yaklaşan kayıt içeren masaüstü öncelikli web deneyimi.",
     role: "Independent project",
     status: "Live",
     thumbnail: "/projects/audioroom-mukemmel-bosluk.png",
@@ -278,11 +294,11 @@ export const projects: Project[] = [
     caseStudy: [
       {
         title: "Overview",
-        body: "Albüm arşivini keşfedilebilir dijital odalara dönüştüren bir müzik deneyimi.",
+        body: "AudioRoom; Hayko, Henry the Lee ve Redd kayıtlarını kendine özgü etkileşimlere sahip oynanabilir 3B müzik dünyalarına dönüştüren canlı bir deneyim merkezi.",
       },
       {
-        title: "Visual storytelling",
-        body: "Redd'in Mükemmel Boşluk evreni; ses, mekân ve görsel hikâye anlatımını aynı deneyimde birleştiriyor.",
+        title: "Current catalogue",
+        body: "Dört dünya canlı; Redd'in 21 albümü ile Pink Floyd dünyası yaklaşan kayıtlar arasında. Deneyim masaüstü öncelikli olarak geliştirilmeye devam ediyor.",
       },
     ],
   },
@@ -292,7 +308,7 @@ export const projects: Project[] = [
     category: "game",
     hook: "İki ordudan birine katıl; kaleleri ele geçir, araziyi boya ve açık alan savaşına yön ver.",
     description:
-      "Kırmızı ve mavi orduları geniş bir adada karşı karşıya getiren birinci şahıs web oyunu; silahlar, takım kaleleri, biyomlar, alan boyama ve NPC ordularını bir araya getirir.",
+      "İki takımın 10 karakol ve boyanabilir arazi için savaştığı, gerçek zamanlı tek global odalı birinci şahıs çok oyunculu WebGL oyunu.",
     role: "Independent project",
     status: "Live",
     thumbnail: "/projects/bibish.png",
@@ -302,11 +318,11 @@ export const projects: Project[] = [
     caseStudy: [
       {
         title: "Game overview",
-        body: "Kırmızı ve mavi orduları geniş bir adada karşı karşıya getiren birinci şahıs web oyunu.",
+        body: "Kırmızı ve mavi takımları Bibish Adası'nda 10 karakol için karşı karşıya getiren gerçek zamanlı çok oyunculu birinci şahıs web oyunu.",
       },
       {
         title: "Core loop",
-        body: "Kaleleri ele geçir, araziyi boya ve açık alan savaşında takımının alan kontrolünü ilerlet.",
+        body: "Oyuncular karakolları ele geçirir, araziyi takım rengine boyar ve tüfek, kılıç ile kalkan kullanarak tek global WebSocket odasında savaşır.",
       },
     ],
   },
@@ -316,7 +332,7 @@ export const projects: Project[] = [
     category: "game",
     hook: "İki kahraman, yedi biyom ve Aku'ya uzanan tek bir karanlık kader.",
     description:
-      "Hz. Ali ve Samuray Jack'i aynı klavyede buluşturan yerel iki oyunculu 3B aksiyon oyunu; biyomlar, boss saldırıları ve zaman portalına uzanan ortak mücadele içerir.",
+      "Hz. Ali ve Samuray Jack'i aynı klavyede buluşturan; yedi biyom, yaratık dalgaları ve Aku boss savaşları üzerinden ilerleyen yerel iki oyunculu 2.5D aksiyon oyunu.",
     role: "Independent project",
     status: "Live",
     thumbnail: "/projects/merbut.png",
@@ -326,7 +342,7 @@ export const projects: Project[] = [
     caseStudy: [
       {
         title: "Game overview",
-        body: "İki oyuncuyu aynı klavyede buluşturan yerel iki oyunculu 3B aksiyon oyunu.",
+        body: "İki oyuncuyu aynı klavyede buluşturan, yedi biyom boyunca ilerleyen yerel iki oyunculu 2.5D aksiyon oyunu.",
       },
       {
         title: "Player experience",

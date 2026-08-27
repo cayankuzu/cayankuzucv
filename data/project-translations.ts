@@ -10,32 +10,32 @@ const englishProjectCopy: Record<string, EnglishProjectCopy> = {
   etkinlink: {
     hook: "Discover an event and meet people who share your excitement.",
     description:
-      "A mobile UI/UX mockup and interactive prototype that brings event discovery, attendee rooms and interest-based matching into one experience.",
+      "An iOS/Android app combining city event discovery, attendee rooms, interest-based matching and private chat after a mutual like.",
   },
   universe: {
     hook: "The whole university experience in one digital universe.",
     description:
-      "A mobile UI/UX mockup and interactive prototype that connects students around campus feeds, communities, events and shared interests.",
+      "An iOS/Android app connecting students and clubs through events, a campus feed, event albums, following and social interactions.",
   },
   sorita: {
     hook: "The city is not only a map, but a social story written together.",
     description:
-      "A mobile UI/UX mockup and interactive prototype that brings places, memories and people together through routes, lists and sharing flows.",
+      "An iOS/Android social app for creating place cards and lists on a map, then discovering people, places and media through follows, likes, comments and sharing.",
   },
   fikkis: {
     hook: "Trying out a few things.",
     description:
-      "A project showcase for interactive web experiences, mobile products, games and creative experiments.",
+      "A project showcase that organises web experiences, mobile products, games and publications in a filterable archive linked to their live destinations.",
   },
   wmatch: {
     hook: "What you watch can shape who you match with.",
     description:
-      "A mobile product concept that builds a taste profile from films and series, then suggests matches around shared titles and genres.",
+      "An 18+ iOS and Android social app that turns shared films, series, favourites and current viewing into compatibility-based matches, then opens chat after mutual likes.",
   },
   "remember-you-must-die": {
     hook: "Step into a world that asks you to remember death.",
     description:
-      "An interactive memento mori experience combining music, light and space, where each room reframes time, memory and mortality through a different atmosphere.",
+      "A 3D memento mori experience combining ouroboros, skull, DNA, hourglass and galaxy models with music, lighting controls and a free camera.",
   },
   desain: {
     hook: "Measure a room and turn it into a three-dimensional design in a few touches.",
@@ -45,17 +45,17 @@ const englishProjectCopy: Record<string, EnglishProjectCopy> = {
   audioroom: {
     hook: "Do not only listen to an album; walk through its world.",
     description:
-      "A music experience that turns an album archive into explorable digital rooms, combining sound and visual storytelling in Redd's Mükemmel Boşluk universe.",
+      "A desktop-first browser experience that turns albums and singles into playable 3D music worlds with distinct interaction and listening loops; four worlds are live and two more are upcoming.",
   },
   bibish: {
     hook: "Join one of two armies, capture castles, paint the terrain and shape the battlefield.",
     description:
-      "A first-person web game that brings red and blue armies together on a large island with weapons, team castles, biomes, territory painting and NPC forces.",
+      "A real-time multiplayer WebGL FPS where two teams fight for ten outposts and paintable terrain in one global room.",
   },
   merbut: {
     hook: "Two heroes, seven biomes and one dark fate leading to Aku.",
     description:
-      "A local two-player 3D action game that brings Hz. Ali and Samurai Jack to the same keyboard, with biomes, boss attacks and a shared path to a time portal.",
+      "A local two-player 2.5D browser action game that brings Hz. Ali and Samurai Jack to the same keyboard through seven biomes, enemy waves and boss battles against Aku.",
   },
   "card-race-game": {
     hook: "Four aces, four lanes and a race that changes with every card draw.",

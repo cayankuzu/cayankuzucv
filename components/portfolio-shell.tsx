@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowRight,
   AtSign,
   Download,
   ExternalLink,
@@ -230,35 +228,39 @@ function ProjectsContent({ locale }: { locale: Locale }) {
       <div className="sectionCopy">
         <p className="leadText">{content.intro}</p>
         <div className="projectSummaryList">
-          {content.items.map((project, index) => (
-            <article key={project.slug}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <header>
-                  <h3>{project.title}</h3>
-                  <small>{project.status}</small>
-                </header>
-                <p>{project.description}</p>
-                <dl>
-                  <div>
-                    <dt>{content.platformLabel}</dt>
-                    <dd>{project.platform}</dd>
-                  </div>
-                  <div>
-                    <dt>{content.roleLabel}</dt>
-                    <dd>{project.role}</dd>
-                  </div>
-                  <div>
-                    <dt>{content.toolsLabel}</dt>
-                    <dd>{project.tools}</dd>
-                  </div>
-                </dl>
-                <Link href={`/${locale}/projects/${project.slug}`}>
-                  {content.viewLabel}
-                  <ArrowRight aria-hidden="true" size={14} strokeWidth={1.8} />
-                </Link>
-              </div>
-            </article>
+          {Array.from({ length: Math.ceil(content.items.length / 2) }, (_, rowIndex) => (
+            <div className="projectSummaryRow" key={content.items[rowIndex * 2].slug}>
+              {content.items.slice(rowIndex * 2, rowIndex * 2 + 2).map((project, columnIndex) => {
+                const index = rowIndex * 2 + columnIndex;
+
+                return (
+                  <article key={project.slug}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <div>
+                      <header>
+                        <h3>{project.title}</h3>
+                        <small>{project.status}</small>
+                      </header>
+                      <p>{project.description}</p>
+                      <dl>
+                        <div>
+                          <dt>{content.platformLabel}</dt>
+                          <dd>{project.platform}</dd>
+                        </div>
+                        <div>
+                          <dt>{content.roleLabel}</dt>
+                          <dd>{project.role}</dd>
+                        </div>
+                        <div>
+                          <dt>{content.toolsLabel}</dt>
+                          <dd>{project.tools}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           ))}
         </div>
 
@@ -267,10 +269,15 @@ function ProjectsContent({ locale }: { locale: Locale }) {
             {content.allProjectsLabel}
             <ExternalLink aria-hidden="true" size={15} strokeWidth={1.8} />
           </a>
-          <div className="printArchiveFallback">
+          <a
+            className="printArchiveFallback"
+            href={FIKKIS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong>{content.archivePrintLabel}</strong>
-            <span>fikkis.vercel.app</span>
-          </div>
+            <span>https://fikkis.vercel.app</span>
+          </a>
         </div>
       </div>
     </div>
