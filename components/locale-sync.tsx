@@ -3,18 +3,10 @@
 import { useEffect } from "react";
 import { type Locale } from "@/data/i18n";
 
-type LocaleSyncProps = {
-  locale: Locale;
-};
-
-export function LocaleSync({ locale }: LocaleSyncProps) {
+/** Son görüntülenen dili çereze yazar; kök adres (/) bir sonraki ziyarette bu dile yönlenir. */
+export function LocaleSync({ locale }: { locale: Locale }) {
   useEffect(() => {
-    document.documentElement.lang = locale;
-    try {
-      window.localStorage.setItem("portfolio-locale", locale);
-    } catch {
-      // Language routing continues to work when storage is unavailable.
-    }
+    document.cookie = `cv-locale=${locale}; path=/; max-age=31536000; samesite=lax`;
   }, [locale]);
 
   return null;
