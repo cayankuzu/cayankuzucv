@@ -545,7 +545,7 @@ button:focus-visible,
 }
 
 .projectHead h3,
-.academicHead h3 {
+.academicItem h3 {
   margin: 0;
   font-family: var(--serif);
   font-size: 18px;
@@ -563,34 +563,47 @@ button:focus-visible,
   text-transform: uppercase;
 }
 
-.academicHead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 4px 16px;
-}
-
-.academicHead h3 {
-  margin: 0;
+.academicItem h3 {
   font-size: 16.5px;
 }
 
-.projectLink {
-  display: inline-flex;
-  margin-left: auto;
-  align-items: center;
-  gap: 4px;
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: rgb(31 111 99 / 35%);
-  text-underline-offset: 3px;
+/* Proje ve akademik çalışmalardaki bağlantı düğmeleri */
+.linkGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.projectLink:hover {
-  text-decoration-color: var(--accent);
+.projectLinks {
+  margin-left: auto;
+}
+
+.academicLinks {
+  margin-top: 10px;
+}
+
+.linkChip {
+  display: inline-flex;
+  min-height: 28px;
+  padding: 0 10px;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgb(31 111 99 / 30%);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.linkChip:hover {
+  border-color: var(--accent);
+  background: rgb(31 111 99 / 7%);
 }
 
 .projectDesc {
@@ -635,8 +648,12 @@ button:focus-visible,
   line-height: 1.45;
 }
 
-.moreProjects .projectLink {
-  margin-left: 0;
+.moreProjects p {
+  margin: 0;
+}
+
+.moreProjects .linkChip {
+  background: var(--paper);
 }
 
 .academic {
@@ -734,8 +751,9 @@ button:focus-visible,
     min-height: 44px;
   }
 
-  .projectLink {
-    min-height: 44px;
+  .linkChip {
+    min-height: 40px;
+    padding: 0 14px;
   }
 }
 
@@ -851,6 +869,12 @@ button:focus-visible,
 
   .orbitMark {
     max-width: 200px;
+  }
+
+  /* Dar ekranda bağlantılar başlığın altında, sola hizalı bir satır olur. */
+  .projectLinks {
+    flex-basis: 100%;
+    margin: 4px 0 0;
   }
 }
 
@@ -1085,22 +1109,32 @@ button:focus-visible,
     font-size: 10.5pt;
   }
 
-  .academicHead h3 {
+  .academicItem h3 {
     font-size: 9.6pt;
+  }
+
+  .linkGroup {
+    gap: 1mm 3.5mm;
+  }
+
+  .linkChip {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    font-size: 7.8pt;
+  }
+
+  .linkChip svg {
+    width: 2.8mm;
+    height: 2.8mm;
+  }
+
+  .academicLinks {
+    margin-top: 1.4mm;
   }
 
   .projectStatus {
     font-size: 6.5pt;
-  }
-
-  .projectLink {
-    font-size: 7.8pt;
-    text-decoration: none;
-  }
-
-  .projectLink svg {
-    width: 2.8mm;
-    height: 2.8mm;
   }
 
   .projectDesc {

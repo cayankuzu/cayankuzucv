@@ -43,6 +43,23 @@ function ExternalLink({ href, className, children }: { href: string; className?:
   );
 }
 
+/** Proje ve akademik çalışmalardaki bağlantı düğmeleri; baskıda sade bağlantıya dönüşür. */
+function LinkGroup({ links, className }: { links: { label: string; href: string }[]; className?: string }) {
+  if (links.length === 0) return null;
+  return (
+    <ul className={`linkGroup${className ? ` ${className}` : ""}`}>
+      {links.map((link) => (
+        <li key={link.href}>
+          <ExternalLink className="linkChip" href={link.href}>
+            {link.label}
+            <ArrowUpRight aria-hidden="true" size={13} strokeWidth={2} />
+          </ExternalLink>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function Section({ index, id, title, children }: { index: string; id: string; title: string; children: ReactNode }) {
   return (
     <section className="section" aria-labelledby={id}>
@@ -160,42 +177,29 @@ export function CvDocument({ locale }: { locale: Locale }) {
                     <header className="projectHead">
                       <h3>{project.name}</h3>
                       <p className="projectStatus">{project.status}</p>
-                      <ExternalLink className="projectLink" href={project.link.href}>
-                        {project.link.label}
-                        <ArrowUpRight aria-hidden="true" size={13} strokeWidth={2} />
-                      </ExternalLink>
+                      <LinkGroup links={project.links} className="projectLinks" />
                     </header>
                     <p className="projectDesc">{project.description}</p>
                     <p className="projectRole">
                       <span>{cv.roleLabel}:</span> {project.role}
                     </p>
-                    <p className="projectStack">{project.stack}</p>
+                    {project.stack ? <p className="projectStack">{project.stack}</p> : null}
                   </article>
                 ))}
               </div>
-              <p className="moreProjects">
-                <span>{cv.moreProjects.text}</span>
-                <ExternalLink className="projectLink" href={cv.moreProjects.link.href}>
-                  {cv.moreProjects.link.label}
-                  <ArrowUpRight aria-hidden="true" size={13} strokeWidth={2} />
-                </ExternalLink>
-              </p>
+              <div className="moreProjects">
+                <p>{cv.moreProjects.text}</p>
+                <LinkGroup links={[cv.moreProjects.link]} />
+              </div>
             </Section>
 
             <Section index="04" id="sec-academic" title={cv.headings.academic}>
               <div className="academic">
                 {cv.academic.map((item) => (
                   <article className="academicItem" key={item.title}>
-                    <header className="academicHead">
-                      <h3>{item.title}</h3>
-                      {item.link ? (
-                        <ExternalLink className="projectLink" href={item.link.href}>
-                          {item.link.label}
-                          <ArrowUpRight aria-hidden="true" size={13} strokeWidth={2} />
-                        </ExternalLink>
-                      ) : null}
-                    </header>
+                    <h3>{item.title}</h3>
                     <p className="projectDesc">{item.detail}</p>
+                    <LinkGroup links={item.links} className="academicLinks" />
                   </article>
                 ))}
               </div>
