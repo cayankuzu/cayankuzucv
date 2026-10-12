@@ -64,6 +64,7 @@ const links = {
   universe: "https://apps.apple.com/tr/app/universe-app/id6761912452",
   universePlay: "https://play.google.com/store/apps/details?id=com.ogrencisosyalagi.app",
   merbut: "https://merbut.vercel.app/",
+  merbutItch: "https://memode.itch.io/merbut",
   atkafasiGumroad: "https://atkafasifanzin.gumroad.com/",
   atkafasiShopier: "https://www.shopier.com/atkafasifanzin",
   audioroom: "https://audio-room-ecru.vercel.app/",
@@ -143,7 +144,10 @@ export const cvContent: Record<Locale, CvDocument> = {
       {
         name: "Merbut",
         status: "Oynanabilir",
-        links: [{ label: "Oyna", href: links.merbut }],
+        links: [
+          { label: "Oyna", href: links.merbut },
+          { label: "itch.io", href: links.merbutItch },
+        ],
         description: "Yerel iki oyunculu 2.5D aksiyon oyunu: her biri kendi mekaniğine sahip on diyar ve üç evreli bir final. Resmi olmayan bir hayran oyunu.",
         role: "Oyun tasarımı; savaş, ilerleme ve boss sistemleri",
         stack: "React Three Fiber · Three.js",
@@ -281,7 +285,10 @@ export const cvContent: Record<Locale, CvDocument> = {
       {
         name: "Merbut",
         status: "Playable",
-        links: [{ label: "Play", href: links.merbut }],
+        links: [
+          { label: "Play", href: links.merbut },
+          { label: "itch.io", href: links.merbutItch },
+        ],
         description: "A local two-player 2.5D action game: ten realms, each with its own mechanic, and a three-phase finale. An unofficial fan game.",
         role: "Game design; combat, progression and boss systems",
         stack: "React Three Fiber · Three.js",

@@ -15,6 +15,7 @@ export const profile = {
     },
     { kind: "web", label: "fikkis.vercel.app", href: "https://fikkis.vercel.app/" },
     { kind: "github", label: "github.com/cayankuzu", href: "https://github.com/cayankuzu" },
+    { kind: "itch", label: "memode.itch.io", href: "https://memode.itch.io/" },
     { kind: "kaggle", label: "kaggle.com/ayankuzu", href: "https://www.kaggle.com/ayankuzu" },
   ],
   cvUrls: {
