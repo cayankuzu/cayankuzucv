@@ -59,12 +59,12 @@ export type CvDocument = {
 };
 
 const links = {
-  sorita: "https://apps.apple.com/tr/app/sorita-app/id6762198781",
-  soritaPlay: "https://play.google.com/store/apps/details?id=com.cayan.sorita.socialmap",
   universe: "https://apps.apple.com/tr/app/universe-app/id6761912452",
   universePlay: "https://play.google.com/store/apps/details?id=com.ogrencisosyalagi.app",
-  merbut: "https://merbut.vercel.app/",
-  merbutItch: "https://memode.itch.io/merbut",
+  beatter: "https://beatter.vercel.app/",
+  beatterGithub: "https://github.com/cayankuzu/beaTTer",
+  sorita: "https://apps.apple.com/tr/app/sorita-app/id6762198781",
+  soritaPlay: "https://play.google.com/store/apps/details?id=com.cayan.sorita.socialmap",
   atkafasiGumroad: "https://atkafasifanzin.gumroad.com/",
   atkafasiShopier: "https://www.shopier.com/atkafasifanzin",
   audioroom: "https://audio-room-ecru.vercel.app/",
@@ -81,7 +81,7 @@ const links = {
 export const cvContent: Record<Locale, CvDocument> = {
   tr: {
     documentLabel: "Özgeçmiş",
-    updated: "Eylül 2026",
+    updated: "Ekim 2026",
     title: "Ürün Tasarımı · UI/UX · Oyun Tasarımı",
     location: "İstanbul, Türkiye",
     headings: {
@@ -96,32 +96,21 @@ export const cvContent: Record<Locale, CvDocument> = {
     },
     roleLabel: "Rolüm",
     profile:
-      "Fizik lisans öğrencisiyim. Dijital ürünleri fikir aşamasından yayına kadar tasarlıyor, geliştirmeyi yapay zekâ araçlarıyla yürütüyorum. App Store'da yayında üç mobil uygulamam (ikisi Google Play'de de), web MVP'lerim, tarayıcı oyunlarım ve bağımsız bir fanzinim var. Ürün tasarımı ve UI/UX alanında staj arıyorum.",
+      "Fizik lisans öğrencisiyim. Fikirleri problem tanımından yayına kadar kullanıcı odaklı tasarlıyor; modern arayüz mimarisi ve yapay zekâ destekli geliştirme disipliniyle çalışan dijital ürünlere dönüştürüyorum. App Store ve Google Play'de onaylı mobil uygulamalarım, biyomekanik ve 3B web deneyimlerim ile bağımsız bir fanzinim bulunuyor. Ürün tasarımı ve UI/UX alanında staj / iş birliği arıyorum.",
     experience: [
       {
         role: "Bağımsız Ürün Tasarımı ve Geliştirme",
         organization: "MeMoDe",
         period: "Devam ediyor",
         points: [
-          "Mobil uygulamalarda problem tanımından kullanıcı akışlarına, arayüz tasarımından yayına kadar uçtan uca çalıştım.",
-          "Yapay zekâ destekli sanal prova, harita tabanlı sosyal oyun ve 3B iç mekân editörü gibi web MVP'lerini tasarlayıp yayına aldım.",
-          "Tarayıcı oyunlarında (gerçek zamanlı çok oyunculu bir FPS dahil) oyun döngüsü ve sistem tasarımı yaptım.",
-          "UniVerse için problemi, çözümü, rakip analizini ve iş modelini kapsayan bir yatırımcı sunumu hazırladım.",
+          "Mobil ürünlerde problem tanımı, kullanıcı yolculukları, arayüz tasarımı ve mağaza yayın onay süreçlerini uçtan uca yönettim.",
+          "UniVerse için problem tanımı, kullanıcı personası, rakip analizi ve iş modelini kapsayan 28 sayfalık yatırımcı/ürün sunumu hazırladım.",
+          "Biyomekanik erken tendon sezimi (-140ms), yapay zekâ sanal prova ve 3B iç mekân editörü gibi deneysel sistemler tasarlayıp geliştirdim.",
+          "Çok oyunculu WebGL ve tarayıcı deneyimlerinde oyun döngüsü, sistem ve etkileşim tasarımı yaptım.",
         ],
       },
     ],
     projects: [
-      {
-        name: "SoRita",
-        status: "Yayında",
-        links: [
-          { label: "App Store", href: links.sorita },
-          { label: "Google Play", href: links.soritaPlay },
-        ],
-        description: "Harita üzerinde mekân keşfi, kişisel listeler ve sosyal paylaşımı bir araya getiren sosyal harita uygulaması.",
-        role: "Ürün kurgusu, kullanıcı akışları, arayüz tasarımı, yayın",
-        stack: "Figma Make · React Native · Expo · Supabase",
-      },
       {
         name: "UniVerse",
         status: "Yayında",
@@ -129,28 +118,39 @@ export const cvContent: Record<Locale, CvDocument> = {
           { label: "App Store", href: links.universe },
           { label: "Google Play", href: links.universePlay },
         ],
-        description: "Öğrencileri ve kulüpleri etkinlikler etrafında buluşturan kampüs uygulaması.",
-        role: "Ürün kurgusu, kullanıcı akışları, arayüz tasarımı, yayın",
+        description: "Öğrencileri ve üniversite kulüplerini etkinlikler ve sosyal akış etrafında buluşturan çift taraflı kampüs platformu.",
+        role: "Problem tanımı, kullanıcı akışları, Figma arayüz tasarımı, mobil geliştirme, mağaza yayını",
         stack: "Figma Make · React Native · Expo · Supabase",
+      },
+      {
+        name: "beaTTer",
+        status: "Canlı",
+        links: [
+          { label: "Canlı Web", href: links.beatter },
+          { label: "GitHub", href: links.beatterGithub },
+        ],
+        description: "Parmak tendon ivmesini havada erken sezerek (-140ms) karşı hamleyi fırlatan Taş-Kağıt-Makas arenası ve robot kol entegrasyonu.",
+        role: "Biyomekanik modelleme, bilgisayarlı görü (CV), oyun teorisi, arayüz ve etkileşim tasarımı",
+        stack: "MediaPipe · TensorFlow · Arduino · Web Audio · Canvas 2D",
+      },
+      {
+        name: "SoRita",
+        status: "Yayında",
+        links: [
+          { label: "App Store", href: links.sorita },
+          { label: "Google Play", href: links.soritaPlay },
+        ],
+        description: "Harita üzerinde mekân keşfi, kişisel listeler ve deneyim notlarını bir araya getiren sosyal harita uygulaması.",
+        role: "Ürün kurgusu, coğrafi etkileşim mimarisi, arayüz tasarımı ve mağaza yayını",
+        stack: "Figma Make · React Native · Expo · Supabase · React Native Maps",
       },
       {
         name: "AudioRoom",
         status: "Canlı demo",
         links: [{ label: "Demo", href: links.audioroom }],
-        description: "Albümleri gezilebilir 3B dünyalara dönüştüren bağımsız müzik deneyimi.",
-        role: "Konsept, deneyim ve arayüz tasarımı",
-        stack: "Three.js · WebGL",
-      },
-      {
-        name: "Merbut",
-        status: "Oynanabilir",
-        links: [
-          { label: "Oyna", href: links.merbut },
-          { label: "itch.io", href: links.merbutItch },
-        ],
-        description: "Yerel iki oyunculu 2.5D aksiyon oyunu: her biri kendi mekaniğine sahip on diyar ve üç evreli bir final. Resmi olmayan bir hayran oyunu.",
-        role: "Oyun tasarımı; savaş, ilerleme ve boss sistemleri",
-        stack: "React Three Fiber · Three.js",
+        description: "Müzik albümlerini gezilebilir ve dinlenebilir 3B dünyalara dönüştüren bağımsız deneyim kütüphanesi.",
+        role: "Konsept, uzamsal ses kurgusu, 3B sahneleme ve arayüz tasarımı",
+        stack: "Three.js · WebGL · Web Audio",
       },
       {
         name: "AtKafası Fanzin",
@@ -159,12 +159,12 @@ export const cvContent: Record<Locale, CvDocument> = {
           { label: "Gumroad", href: links.atkafasiGumroad },
           { label: "Shopier", href: links.atkafasiShopier },
         ],
-        description: "İçeriğini ve tasarımını büyük ölçüde kendim hazırladığım, iki sayısı yayımlanan bağımsız fanzin.",
+        description: "Yazılarından görsel diline, 18 parçalık sticker serisinden sayfa mizanpajına kadar bağımsız hazırladığım kültür fanzini.",
         role: "Yazılar, editoryal ve görsel kimlik, sayfa tasarımı, yayın",
       },
     ],
     moreProjects: {
-      text: "Diğer mobil uygulamalar, web MVP'leri, oyunlar ve bilim çalışmaları dahil tüm projeler",
+      text: "Zlip, WMatch, trAI, Merbut, sTressT, STROLLY ve bilim çalışmaları dahil tüm üretimler",
       link: { label: "fikkis.vercel.app", href: links.fikkis },
     },
     academic: [
@@ -222,7 +222,7 @@ export const cvContent: Record<Locale, CvDocument> = {
   },
   en: {
     documentLabel: "Curriculum Vitae",
-    updated: "September 2026",
+    updated: "October 2026",
     title: "Product Design · UI/UX · Game Design",
     location: "Istanbul, Türkiye",
     headings: {
@@ -237,32 +237,21 @@ export const cvContent: Record<Locale, CvDocument> = {
     },
     roleLabel: "My role",
     profile:
-      "Physics undergraduate who designs digital products from first idea to release and builds them with AI development tools. I have three mobile apps live on the App Store (two also on Google Play), several web MVPs, browser games and an independent zine. Seeking an internship in product design and UI/UX.",
+      "Physics undergraduate combining analytical systems thinking with user-centered product design. I design and ship digital products end-to-end: from user research and interactive Figma prototypes to published App Store / Google Play apps, biomechanical CV systems and 3D web experiences. Seeking an internship or junior role in Product Design & UI/UX.",
     experience: [
       {
         role: "Independent Product Design & Development",
         organization: "MeMoDe",
         period: "Present",
         points: [
-          "Worked end to end on mobile apps, from problem framing and user flows to interface design and release.",
-          "Designed and launched web MVPs, including an AI virtual try-on, a map-based social game and a 3D interior editor.",
-          "Designed core loops and game systems for browser games, including a real-time multiplayer FPS.",
-          "Prepared an investor deck for UniVerse covering the problem, solution, competitor analysis and business model.",
+          "Led end-to-end product design and store launch processes across mobile applications.",
+          "Prepared a comprehensive 28-page investor/product deck for UniVerse covering problem, personas, competitor analysis and business model.",
+          "Designed and built experimental systems including early tendon gesture sensing (-140ms), AI virtual try-on and 3D interior editors.",
+          "Designed core loops, game UI/UX and systems architecture for multiplayer WebGL games.",
         ],
       },
     ],
     projects: [
-      {
-        name: "SoRita",
-        status: "Live",
-        links: [
-          { label: "App Store", href: links.sorita },
-          { label: "Google Play", href: links.soritaPlay },
-        ],
-        description: "A social map app that brings place discovery, personal lists and social sharing together.",
-        role: "Product concept, user flows, interface design, release",
-        stack: "Figma Make · React Native · Expo · Supabase",
-      },
       {
         name: "UniVerse",
         status: "Live",
@@ -270,28 +259,39 @@ export const cvContent: Record<Locale, CvDocument> = {
           { label: "App Store", href: links.universe },
           { label: "Google Play", href: links.universePlay },
         ],
-        description: "A campus app that brings students and clubs together around events.",
-        role: "Product concept, user flows, interface design, release",
+        description: "A two-sided campus mobile platform connecting students and university clubs around events and community feeds.",
+        role: "Problem framing, user journeys, Figma UI design, mobile engineering, store releases",
         stack: "Figma Make · React Native · Expo · Supabase",
+      },
+      {
+        name: "beaTTer",
+        status: "Live",
+        links: [
+          { label: "Live Web", href: links.beatter },
+          { label: "GitHub", href: links.beatterGithub },
+        ],
+        description: "A game-theoretic arena anticipating human hand gesture trajectory (-140ms early tendon detection) with physical/digital robot arm integration.",
+        role: "Biomechanical modeling, computer vision, game theory, UI/UX & real-time interaction",
+        stack: "MediaPipe · TensorFlow · Arduino · Web Audio · Canvas 2D",
+      },
+      {
+        name: "SoRita",
+        status: "Live",
+        links: [
+          { label: "App Store", href: links.sorita },
+          { label: "Google Play", href: links.soritaPlay },
+        ],
+        description: "A social map application combining geographic place discovery, personal lists and user experience reviews.",
+        role: "Product concept, geographic UX architecture, UI design and store releases",
+        stack: "Figma Make · React Native · Expo · Supabase · React Native Maps",
       },
       {
         name: "AudioRoom",
         status: "Live demo",
         links: [{ label: "Demo", href: links.audioroom }],
-        description: "An independent music experience that turns albums into explorable 3D worlds.",
-        role: "Concept, experience and interface design",
-        stack: "Three.js · WebGL",
-      },
-      {
-        name: "Merbut",
-        status: "Playable",
-        links: [
-          { label: "Play", href: links.merbut },
-          { label: "itch.io", href: links.merbutItch },
-        ],
-        description: "A local two-player 2.5D action game: ten realms, each with its own mechanic, and a three-phase finale. An unofficial fan game.",
-        role: "Game design; combat, progression and boss systems",
-        stack: "React Three Fiber · Three.js",
+        description: "A creative web experience turning musical albums into explorable, interactive 3D worlds.",
+        role: "Concept, spatial audio direction, 3D scene design & interface",
+        stack: "Three.js · WebGL · Web Audio",
       },
       {
         name: "AtKafası Fanzin",
@@ -300,12 +300,12 @@ export const cvContent: Record<Locale, CvDocument> = {
           { label: "Gumroad", href: links.atkafasiGumroad },
           { label: "Shopier", href: links.atkafasiShopier },
         ],
-        description: "An independent zine with two published issues, most of whose writing and design I produced myself.",
-        role: "Writing, editorial and visual identity, layout, publishing",
+        description: "An independent print & digital cultural zine with two published issues, custom stickers and editorial layout.",
+        role: "Writing, editorial & visual identity, layout design, publishing",
       },
     ],
     moreProjects: {
-      text: "All projects, including more mobile apps, web MVPs, games and science work",
+      text: "All projects, including Zlip, WMatch, trAI, Merbut, sTressT, STROLLY and science work",
       link: { label: "fikkis.vercel.app", href: links.fikkis },
     },
     academic: [
