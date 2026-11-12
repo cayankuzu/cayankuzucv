@@ -61,6 +61,10 @@ export type CvDocument = {
 const links = {
   universe: "https://apps.apple.com/tr/app/universe-app/id6761912452",
   universePlay: "https://play.google.com/store/apps/details?id=com.ogrencisosyalagi.app",
+  simulab: "https://simulab-drab.vercel.app/",
+  simulabGithub: "https://github.com/cayankuzu/SimuLab",
+  lifeOfPhoton: "https://life-of-photon.vercel.app/",
+  lifeOfPhotonGithub: "https://github.com/cayankuzu/LifeOfPhoton",
   beatter: "https://beatter.vercel.app/",
   beatterGithub: "https://github.com/cayankuzu/beaTTer",
   sorita: "https://apps.apple.com/tr/app/sorita-app/id6762198781",
@@ -81,8 +85,8 @@ const links = {
 export const cvContent: Record<Locale, CvDocument> = {
   tr: {
     documentLabel: "Özgeçmiş",
-    updated: "Ekim 2026",
-    title: "Ürün Tasarımı · UI/UX · Oyun Tasarımı",
+    updated: "Kasım 2026",
+    title: "Ürün Tasarımı · UI/UX · Yaratıcı Mühendislik",
     location: "İstanbul, Türkiye",
     headings: {
       contact: "İletişim",
@@ -96,17 +100,17 @@ export const cvContent: Record<Locale, CvDocument> = {
     },
     roleLabel: "Rolüm",
     profile:
-      "Fizik lisans öğrencisiyim. Fikirleri problem tanımından yayına kadar kullanıcı odaklı tasarlıyor; modern arayüz mimarisi ve yapay zekâ destekli geliştirme disipliniyle çalışan dijital ürünlere dönüştürüyorum. App Store ve Google Play'de onaylı mobil uygulamalarım, biyomekanik ve 3B web deneyimlerim ile bağımsız bir fanzinim bulunuyor. Ürün tasarımı ve UI/UX alanında staj / iş birliği arıyorum.",
+      "Fizik lisans öğrencisiyim. Fikirleri problem tanımından yayına kadar kullanıcı odaklı tasarlıyor; arayüz mimarisi, doğrulanmış bilimsel modelleme ve yapay zekâ destekli geliştirme disipliniyle çalışan ürünlere dönüştürüyorum. App Store ve Google Play'de yayında mobil uygulamalarım, etkileşimli 3B fizik laboratuvarlarım ve bağımsız bir fanzinim var. Ürün tasarımı ve UI/UX alanında staj veya iş birliği arıyorum.",
     experience: [
       {
         role: "Bağımsız Ürün Tasarımı ve Geliştirme",
         organization: "MeMoDe",
         period: "Devam ediyor",
         points: [
-          "Mobil ürünlerde problem tanımı, kullanıcı yolculukları, arayüz tasarımı ve mağaza yayın onay süreçlerini uçtan uca yönettim.",
+          "Mobil ürünlerde problem tanımı, kullanıcı yolculukları, Figma arayüz tasarımı ve mağaza yayın süreçlerini uçtan uca yönettim.",
+          "SimuLab ve Life of a Photon ile doğrulanmış sayısal çözücüleri (RK4/DP5), özel görelilik optiğini ve WCAG 2.2 AA erişilebilirliğini 3B laboratuvar arayüzlerinde buluşturdum.",
           "UniVerse için problem tanımı, kullanıcı personası, rakip analizi ve iş modelini kapsayan 28 sayfalık yatırımcı/ürün sunumu hazırladım.",
-          "Biyomekanik erken tendon sezimi (-140ms), yapay zekâ sanal prova ve 3B iç mekân editörü gibi deneysel sistemler tasarlayıp geliştirdim.",
-          "Çok oyunculu WebGL ve tarayıcı deneyimlerinde oyun döngüsü, sistem ve etkileşim tasarımı yaptım.",
+          "SHA-256 taahhütlü el izleme arenası (beaTTer), katlanabilir kapak ekranı deneyimi (Zlip) ve 3B WebGL dünyaları tasarlayıp geliştirdim.",
         ],
       },
     ],
@@ -123,15 +127,37 @@ export const cvContent: Record<Locale, CvDocument> = {
         stack: "Figma Make · React Native · Expo · Supabase",
       },
       {
+        name: "SimuLab",
+        status: "Canlı · v2.1",
+        links: [
+          { label: "Canlı Web", href: links.simulab },
+          { label: "GitHub", href: links.simulabGithub },
+        ],
+        description: "Her sonucu kuramla karşılaştırılan, RK4 ve Dormand–Prince çözücülü, 14 doğrulama deneyli 3B salınım ve kaos laboratuvarı.",
+        role: "Hesaplamalı fizik, sayısal doğrulama, veri görselleştirme ve WCAG 2.2 AA UI/UX tasarımı",
+        stack: "Next.js 15 · React 19 · Three.js · TypeScript · KaTeX · Vitest",
+      },
+      {
+        name: "Life of a Photon",
+        status: "Canlı · v1.0",
+        links: [
+          { label: "Canlı Web", href: links.lifeOfPhoton },
+          { label: "GitHub", href: links.lifeOfPhotonGithub },
+        ],
+        description: "0,99999 c'ye hızlanan gözlemcinin gördüğü caddeyi relativistik sapınç, Doppler kayması ve CIE 1931 renk bilimiyle hesaplayan simülasyon.",
+        role: "Görelilik ve renk bilimi modellemesi, GLSL gölgelendiricileri, pedagojik panel ve UI/UX tasarımı",
+        stack: "Next.js · React Three Fiber · WebGL 2 / GLSL · TypeScript · KaTeX",
+      },
+      {
         name: "beaTTer",
-        status: "Canlı",
+        status: "Canlı · v4",
         links: [
           { label: "Canlı Web", href: links.beatter },
           { label: "GitHub", href: links.beatterGithub },
         ],
-        description: "Parmak tendon ivmesini havada erken sezerek (-140ms) karşı hamleyi fırlatan Taş-Kağıt-Makas arenası ve robot kol entegrasyonu.",
-        role: "Biyomekanik modelleme, bilgisayarlı görü (CV), oyun teorisi, arayüz ve etkileşim tasarımı",
-        stack: "MediaPipe · TensorFlow · Arduino · Web Audio · Canvas 2D",
+        description: "Parmakların havada açılışını MediaPipe ile okuyup kararını inişten önceki karede SHA-256 ile mühürleyen Taş-Kağıt-Makas rakibi.",
+        role: "Oyun teorisi, bilgisayarlı görü (GPU), kriptografik taahhüt, Arena/Rapor/Lab UI/UX tasarımı",
+        stack: "MediaPipe · Web Crypto (SHA-256) · Canvas 2D · Web Audio",
       },
       {
         name: "SoRita",
@@ -145,26 +171,18 @@ export const cvContent: Record<Locale, CvDocument> = {
         stack: "Figma Make · React Native · Expo · Supabase · React Native Maps",
       },
       {
-        name: "AudioRoom",
-        status: "Canlı demo",
-        links: [{ label: "Demo", href: links.audioroom }],
-        description: "Müzik albümlerini gezilebilir ve dinlenebilir 3B dünyalara dönüştüren bağımsız deneyim kütüphanesi.",
-        role: "Konsept, uzamsal ses kurgusu, 3B sahneleme ve arayüz tasarımı",
-        stack: "Three.js · WebGL · Web Audio",
-      },
-      {
         name: "AtKafası Fanzin",
-        status: "1. ve 2. sayı",
+        status: "Sayı 1–2",
         links: [
           { label: "Gumroad", href: links.atkafasiGumroad },
           { label: "Shopier", href: links.atkafasiShopier },
         ],
-        description: "Yazılarından görsel diline, 18 parçalık sticker serisinden sayfa mizanpajına kadar bağımsız hazırladığım kültür fanzini.",
-        role: "Yazılar, editoryal ve görsel kimlik, sayfa tasarımı, yayın",
+        description: "İki sayısı yayımlanmış, özel çıkartma ve mizanpaj kurgusuna sahip bağımsız basılı ve dijital kültür fanzini.",
+        role: "Metin yazarlığı, editoryal ve görsel kimlik, sayfa mizanpajı, bağımsız yayın",
       },
     ],
     moreProjects: {
-      text: "Zlip, WMatch, trAI, Merbut, sTressT, STROLLY ve bilim çalışmaları dahil tüm üretimler",
+      text: "Zlip, WMatch, AudioRoom, STROLLY ve The Dream of the Photo dahil 42 üretim",
       link: { label: "fikkis.vercel.app", href: links.fikkis },
     },
     academic: [
@@ -204,14 +222,14 @@ export const cvContent: Record<Locale, CvDocument> = {
     skills: [
       {
         label: "Ürün ve UX",
-        items: "Problem tanımı, kullanıcı akışları, bilgi mimarisi, etkileşim tasarımı, prototipleme",
+        items: "Problem tanımı, kullanıcı akışları, bilgi mimarisi, etkileşim tasarımı, WCAG 2.2 AA erişilebilirlik",
       },
       {
         label: "UI ve tasarım",
-        items: "Figma (auto layout, component, variant, variable), tasarım sistemleri, editoryal tasarım",
+        items: "Figma (auto layout, component, variant, variable), tasarım sistemleri, veri görselleştirme, editoryal tasarım",
       },
-      { label: "Oyun ve etkileşim", items: "Oyun döngüsü, sistem tasarımı, oyun UI/UX, etkileşimli prototipleme" },
-      { label: "Teknik üretim", items: "React Native (Expo), Next.js, Supabase, Three.js" },
+      { label: "Oyun ve simülasyon", items: "Sayısal fizik çözücüleri (RK4/DP5), oyun döngüsü, sistem tasarımı, oyun UI/UX" },
+      { label: "Teknik üretim", items: "React Native (Expo), Next.js, TypeScript, Three.js / WebGL / GLSL, Supabase, Kotlin" },
       {
         label: "Yapay zekâ destekli üretim",
         items: "Cursor, Figma MCP, Figma Make, yapay zekâ destekli prototipleme",
@@ -222,8 +240,8 @@ export const cvContent: Record<Locale, CvDocument> = {
   },
   en: {
     documentLabel: "Curriculum Vitae",
-    updated: "October 2026",
-    title: "Product Design · UI/UX · Game Design",
+    updated: "November 2026",
+    title: "Product Design · UI/UX · Creative Engineering",
     location: "Istanbul, Türkiye",
     headings: {
       contact: "Contact",
@@ -237,17 +255,17 @@ export const cvContent: Record<Locale, CvDocument> = {
     },
     roleLabel: "My role",
     profile:
-      "Physics undergraduate combining analytical systems thinking with user-centered product design. I design and ship digital products end-to-end: from user research and interactive Figma prototypes to published App Store / Google Play apps, biomechanical CV systems and 3D web experiences. Seeking an internship or junior role in Product Design & UI/UX.",
+      "Physics undergraduate combining analytical systems thinking and verified numerical modeling with user-centered product design. I design and ship digital products end-to-end: from user research and Figma design systems to published App Store & Google Play apps, interactive 3D physics laboratories, and an independent zine. Seeking an internship or collaboration in Product Design & UI/UX.",
     experience: [
       {
         role: "Independent Product Design & Development",
         organization: "MeMoDe",
         period: "Present",
         points: [
-          "Led end-to-end product design and store launch processes across mobile applications.",
-          "Prepared a comprehensive 28-page investor/product deck for UniVerse covering problem, personas, competitor analysis and business model.",
-          "Designed and built experimental systems including early tendon gesture sensing (-140ms), AI virtual try-on and 3D interior editors.",
-          "Designed core loops, game UI/UX and systems architecture for multiplayer WebGL games.",
+          "Led end-to-end product design, Figma UI systems, and store launch processes across mobile applications.",
+          "Built SimuLab and Life of a Photon, uniting verified numerical solvers (RK4/DP5), relativistic optics, and WCAG 2.2 AA accessibility in interactive 3D laboratory interfaces.",
+          "Prepared a comprehensive 28-page investor/product deck for UniVerse covering problem framing, personas, competitor analysis, and business model.",
+          "Designed and engineered a SHA-256 commitment hand-tracking arena (beaTTer), foldable cover-screen UX (Zlip), and 3D WebGL experiences.",
         ],
       },
     ],
@@ -264,15 +282,37 @@ export const cvContent: Record<Locale, CvDocument> = {
         stack: "Figma Make · React Native · Expo · Supabase",
       },
       {
+        name: "SimuLab",
+        status: "Live · v2.1",
+        links: [
+          { label: "Live Web", href: links.simulab },
+          { label: "GitHub", href: links.simulabGithub },
+        ],
+        description: "3D oscillation and chaos laboratory with verified RK4 & Dormand–Prince solvers and 14 repeatable verification experiments.",
+        role: "Computational physics, numerical verification, data visualization, WCAG 2.2 AA product & UI/UX design",
+        stack: "Next.js 15 · React 19 · Three.js · TypeScript · KaTeX · Vitest",
+      },
+      {
+        name: "Life of a Photon",
+        status: "Live · v1.0",
+        links: [
+          { label: "Live Web", href: links.lifeOfPhoton },
+          { label: "GitHub", href: links.lifeOfPhotonGithub },
+        ],
+        description: "First-person special relativity simulation computing what a traveller sees up to 0.99999 c via relativistic aberration, Doppler shift, and CIE 1931 color science.",
+        role: "Relativity & color-science modeling, GLSL shaders, live pedagogical explainer panel & UI/UX design",
+        stack: "Next.js · React Three Fiber · WebGL 2 / GLSL · TypeScript · KaTeX",
+      },
+      {
         name: "beaTTer",
-        status: "Live",
+        status: "Live · v4",
         links: [
           { label: "Live Web", href: links.beatter },
           { label: "GitHub", href: links.beatterGithub },
         ],
-        description: "A game-theoretic arena anticipating human hand gesture trajectory (-140ms early tendon detection) with physical/digital robot arm integration.",
-        role: "Biomechanical modeling, computer vision, game theory, UI/UX & real-time interaction",
-        stack: "MediaPipe · TensorFlow · Arduino · Web Audio · Canvas 2D",
+        description: "Rock-Paper-Scissors AI opponent reading mid-air finger motion with MediaPipe and sealing its decision with SHA-256 before the hand lands.",
+        role: "Game theory, GPU computer vision, cryptographic commitment, Arena/Report/Lab UI/UX & thesis",
+        stack: "MediaPipe · Web Crypto (SHA-256) · Canvas 2D · Web Audio",
       },
       {
         name: "SoRita",
@@ -286,14 +326,6 @@ export const cvContent: Record<Locale, CvDocument> = {
         stack: "Figma Make · React Native · Expo · Supabase · React Native Maps",
       },
       {
-        name: "AudioRoom",
-        status: "Live demo",
-        links: [{ label: "Demo", href: links.audioroom }],
-        description: "A creative web experience turning musical albums into explorable, interactive 3D worlds.",
-        role: "Concept, spatial audio direction, 3D scene design & interface",
-        stack: "Three.js · WebGL · Web Audio",
-      },
-      {
         name: "AtKafası Fanzin",
         status: "Issues 1–2",
         links: [
@@ -305,7 +337,7 @@ export const cvContent: Record<Locale, CvDocument> = {
       },
     ],
     moreProjects: {
-      text: "All projects, including Zlip, WMatch, trAI, Merbut, sTressT, STROLLY and science work",
+      text: "All 42 works, including Zlip, WMatch, AudioRoom, STROLLY and The Dream of the Photo",
       link: { label: "fikkis.vercel.app", href: links.fikkis },
     },
     academic: [
@@ -345,14 +377,14 @@ export const cvContent: Record<Locale, CvDocument> = {
     skills: [
       {
         label: "Product and UX",
-        items: "Problem framing, user flows, information architecture, interaction design, prototyping",
+        items: "Problem framing, user flows, information architecture, interaction design, WCAG 2.2 AA accessibility",
       },
       {
         label: "UI and design",
-        items: "Figma (auto layout, components, variants, variables), design systems, editorial design",
+        items: "Figma (auto layout, components, variants, variables), design systems, data visualization, editorial design",
       },
-      { label: "Games and interaction", items: "Core loops, systems design, game UI/UX, interactive prototyping" },
-      { label: "Technical production", items: "React Native (Expo), Next.js, Supabase, Three.js" },
+      { label: "Simulation and games", items: "Numerical physics solvers (RK4/DP5), core loops, systems design, game UI/UX" },
+      { label: "Technical production", items: "React Native (Expo), Next.js, TypeScript, Three.js / WebGL / GLSL, Supabase, Kotlin" },
       {
         label: "AI-assisted production",
         items: "Cursor, Figma MCP, Figma Make, AI-assisted prototyping",

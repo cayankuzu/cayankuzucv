@@ -19,6 +19,9 @@ async function run() {
   });
   await deskPage.goto("http://localhost:3001/tr", { waitUntil: "networkidle" });
   await deskPage.evaluate(() => document.fonts.ready);
+  await deskPage.evaluate(() => {
+    document.querySelectorAll("nextjs-portal").forEach((el) => el.remove());
+  });
   const deskShot = await deskPage.screenshot();
   await deskPage.close();
   const deskBase64 = deskShot.toString("base64");
@@ -32,7 +35,23 @@ async function run() {
   await printPage.goto("http://localhost:3001/tr", { waitUntil: "networkidle" });
   await printPage.evaluate(() => document.fonts.ready);
   await printPage.emulateMedia({ media: "print" });
-  
+  await printPage.evaluate(() => {
+    document.querySelectorAll("nextjs-portal").forEach((el) => el.remove());
+    const paper = document.querySelector(".paper");
+    if (paper) paper.style.minHeight = "2246px";
+    const pageBreakY = 1123;
+    const candidates = document.querySelectorAll(".project, .moreProjects, .academicItem");
+    for (const el of candidates) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < pageBreakY && rect.bottom > pageBreakY - 16) {
+        const push = pageBreakY - rect.top + 28;
+        el.style.marginTop = `${push}px`;
+        el.style.borderTop = "none";
+        break;
+      }
+    }
+  });
+
   const p1Buf = await printPage.screenshot({
     clip: { x: 0, y: 0, width: 794, height: 1123 },
   });
@@ -51,6 +70,9 @@ async function run() {
   });
   await m1Page.goto("http://localhost:3001/tr", { waitUntil: "networkidle" });
   await m1Page.evaluate(() => document.fonts.ready);
+  await m1Page.evaluate(() => {
+    document.querySelectorAll("nextjs-portal").forEach((el) => el.remove());
+  });
   const m1Buf = await m1Page.screenshot();
   await m1Page.close();
 
@@ -61,6 +83,7 @@ async function run() {
   await m2Page.goto("http://localhost:3001/tr", { waitUntil: "networkidle" });
   await m2Page.evaluate(() => document.fonts.ready);
   await m2Page.evaluate(() => {
+    document.querySelectorAll("nextjs-portal").forEach((el) => el.remove());
     const el = document.getElementById("sec-projects");
     if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
   });
